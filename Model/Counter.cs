@@ -11,19 +11,19 @@ namespace Brasserie.Model
         public Counter()
         {
             CounterValue = 0;
-            LimitiMax = 10;
+            LimitMax = 10;
             PreAlarmThresold = 8;
             UpdatePreAlarmStatus();
         }
 
         public int CounterValue { get; set; }
-        public int LimitiMax { get; set; }
+        public int LimitMax { get; set; }
         public int PreAlarmThresold { get; set; }
         public bool IsInPreAlarm { get; private set; }
 
-        public void Increment()
+        public void IncrementCounter()
         {
-            if (CounterValue + 1 <= LimitiMax)
+            if (CounterValue + 1 <= LimitMax)
             {
                 CounterValue++;
                 UpdatePreAlarmStatus();
@@ -32,7 +32,7 @@ namespace Brasserie.Model
 
         private void UpdatePreAlarmStatus()
         {
-            IsInPreAlarm = CounterValue >= PreAlarmThresold;
+            IsInPreAlarm = (CounterValue >= PreAlarmThresold);
         }
     }
 }
