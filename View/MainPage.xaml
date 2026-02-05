@@ -3,11 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Brasserie.View.MainPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key= "TestButton" TargetType ="Button">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="BackgroundColor" Value="Grey"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Image
+            <Button
+            x:Name="buttonTestCreateFirstPersons"
+            Text=" Créer mes premières personnes"
+            Clicked="buttonTestCreateFirstPersons_Clicked"
+            Style="{StaticResource TestButton}"
+            />
+            <!--<Image
                 Source="dotnet_bot.png"
                 HeightRequest="185"
                 Aspect="AspectFit"
@@ -31,7 +47,7 @@
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
 
-            <Entry x:Name="EntryCount" />
+            <Entry x:Name="EntryCount" />-->
         </VerticalStackLayout>
     </ScrollView>
 
