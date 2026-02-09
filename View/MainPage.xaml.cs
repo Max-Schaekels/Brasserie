@@ -1,4 +1,5 @@
 ﻿using Brasserie.Model;
+using Brasserie.Model.Restaurant.Catering;
 using Brasserie.Model.Restaurant.People;
 
 namespace Brasserie.View
@@ -46,6 +47,27 @@ namespace Brasserie.View
             Person FourthPerson = new Person(4, "Lupant", "Sebastien");
             Person FifthPerson = new Person();
             //Person TestPerson = new Person( lastName: "Lupant", firstName: "Sebastien");
+
+            Person p;
+
+            p = new Person(6, "Tardif", "Jean");
+
+            //secondPerson._email = "04.be";
+            //secondPerson._mobilePhoneNumber = "44719";
+
+        }
+
+        private void buttonTestEncapsulation_Clicked(object sender, EventArgs e)
+        {
+            Person p = new Person(id: 2, lastName: "Deroisin", firstName: "Sophie", gender: false, email: "sophiederoisin@gmail.com", mobilePhoneNumber: "0473121314");
+            p.FirstName = "Dark-Vador";
+            lblDebug.Text = p.FirstName;
+        }
+
+        private void buttonTestCreateItem_Clicked(object sender, EventArgs e)
+        {
+            Item item = new Item(id : 1, name: "Lasagne", description: "une grosse assiette de lasagne",unitPrice: 20.0, vatRate: 21.0, pictureName: "patebolo.jpg" );
+            lblItemDebug.Text = $"Id : {item.Id} Name : {item.Name} Description : {item.Description} UnitPrice : {item.UnitPrice} VatRate : {item.VatRate} PictureName : {item.PictureName}";
         }
 
 
