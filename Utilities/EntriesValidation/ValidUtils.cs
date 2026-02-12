@@ -87,5 +87,29 @@ namespace Brasserie.Utilities.EntriesValidation
             }
             return false;
         }
+
+        public static bool CheckSeatNumber(int seatNumber)
+        {
+            if (seatNumber >= 2)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool IsInRange(int value, int min, int max)
+        {
+            return value >= min && value <= max;
+        }
+        /// <summary>
+        /// Check if value is in range defined by a low limit included
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="min"></param>
+        /// <returns></returns>
+        public static bool IsInRange(int value, int min)
+        {
+            return value >= min;
+        }
     }
 }

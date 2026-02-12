@@ -34,6 +34,8 @@ namespace Brasserie.Model.Restaurant.People
             TotalPersons++;
         }
 
+        public static int TotalPersons { get => _totalPersons; private set => _totalPersons = value; }
+
         /// <summary>
         /// Id number
         /// </summary>
@@ -183,7 +185,7 @@ namespace Brasserie.Model.Restaurant.People
             }
             return false;
         }
-        public static int TotalPersons { get => _totalPersons; private set => _totalPersons = value; }
+        
 
 
 

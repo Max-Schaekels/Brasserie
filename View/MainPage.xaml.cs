@@ -1,5 +1,6 @@
 ﻿using Brasserie.Model;
 using Brasserie.Model.Restaurant.Catering;
+using Brasserie.Model.Restaurant.Design;
 using Brasserie.Model.Restaurant.People;
 
 namespace Brasserie.View
@@ -78,7 +79,10 @@ namespace Brasserie.View
             lblDebug.Text = $"Nombre d'instances de classe Person : {Person.TotalPersons}";
         }
 
-
+        private void buttonTestTable_Clicked(object sender, EventArgs e)
+        {
+            Table table = new Table( 1, 4, true);
+        }
     }
 
 }

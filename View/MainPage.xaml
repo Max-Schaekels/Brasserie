@@ -54,6 +54,13 @@
             Style="{StaticResource TestButton}"
             />
 
+            <Button
+            x:Name="buttonTestTable"
+            Text="Créer tabme "
+            Clicked="buttonTestTable_Clicked"
+            Style="{StaticResource TestButton}"
+            />
+
 
 
             <!--<Image
