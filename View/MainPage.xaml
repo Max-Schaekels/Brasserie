@@ -47,6 +47,14 @@
             Style="{StaticResource TestButton}"
             />
 
+            <Button
+            x:Name="buttonTestStatic"
+            Text="Test static "
+            Clicked="buttonTestStatic_Clicked"
+            Style="{StaticResource TestButton}"
+            />
+
+
 
             <!--<Image
                 Source="dotnet_bot.png"

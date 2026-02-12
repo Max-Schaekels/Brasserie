@@ -12,12 +12,12 @@ namespace Brasserie.Utilities.EntriesValidation
 
         public static bool CheckIfPositiveNumber(int value)
         {
-            return value > 0;
+            return value >= 0;
         }
 
         public static bool CheckIfPositiveNumber(double value)
         {
-            return value > 0;
+            return value >= 0;
         }
 
         public static bool CheckEntryName(string name)
@@ -74,6 +74,18 @@ namespace Brasserie.Utilities.EntriesValidation
             }
 
             return true;
+        }
+
+        public static bool CheckFileFormat(string fileName, string[] AuthorizedFormats)
+        {
+            foreach (string format in AuthorizedFormats)
+            {
+                if (fileName.EndsWith(format))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

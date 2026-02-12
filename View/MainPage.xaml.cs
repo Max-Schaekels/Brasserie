@@ -70,6 +70,14 @@ namespace Brasserie.View
             lblItemDebug.Text = $"Id : {item.Id} Name : {item.Name} Description : {item.Description} UnitPrice : {item.UnitPrice} VatRate : {item.VatRate} PictureName : {item.PictureName}";
         }
 
+        private void buttonTestStatic_Clicked(object sender, EventArgs e)
+        {
+            string mail = "mon mail@gmail.com";
+            bool testMail = Person.CheckEMail(mail);
+            //lblDebug.Text = $"résultat du test de validité du mail {mail} : {testMail.ToString()}";
+            lblDebug.Text = $"Nombre d'instances de classe Person : {Person.TotalPersons}";
+        }
+
 
     }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Brasserie.Utilities.EntriesValidation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,9 @@ namespace Brasserie.Model.Restaurant.Catering
 {
     public class Item
     {
+        private const int MINIMUM_DESCRIPTION_LENGTH = 10;
+        public static readonly string[] ALLOWED_PICTURE_FILE_FORMATS = { "jpg", "png" } ;
+
         private string _name;
         private string _description;
         private int _id;
@@ -26,12 +30,16 @@ namespace Brasserie.Model.Restaurant.Catering
             PictureName = pictureName;
         }
 
+        public Item()
+        {
+        }
+
         public string Name
         {
             get => _name;
             set
             {
-                if (Utilities.EntriesValidation.ValidUtils.CheckEntryName(value))
+                if (ValidUtils.CheckEntryName(value))
                 {
                     _name = value;
                 }
@@ -43,7 +51,7 @@ namespace Brasserie.Model.Restaurant.Catering
             get => _description;
             set
             {
-                if (Utilities.EntriesValidation.ValidUtils.CheckEntryDescription(value, 10))
+                if (ValidUtils.CheckEntryDescription(value, MINIMUM_DESCRIPTION_LENGTH))
                 {
                     _description = value;
                 }
@@ -55,7 +63,7 @@ namespace Brasserie.Model.Restaurant.Catering
             get => _id;
             set
             {
-                if (Utilities.EntriesValidation.ValidUtils.CheckIfPositiveNumber(value))
+                if (ValidUtils.CheckIfPositiveNumber(value))
                 {
                     _id = value;
                 }
@@ -67,7 +75,7 @@ namespace Brasserie.Model.Restaurant.Catering
             get => _unitPrice;
             set
             {
-                if (Utilities.EntriesValidation.ValidUtils.CheckIfPositiveNumber(value))
+                if (ValidUtils.CheckIfPositiveNumber(value))
                 {
                     _unitPrice = value;
                 }
@@ -79,7 +87,7 @@ namespace Brasserie.Model.Restaurant.Catering
             get => _vatRate;
             set
             {
-                if (Utilities.EntriesValidation.ValidUtils.CheckIfPositiveNumber(value))
+                if (ValidUtils.CheckIfPositiveNumber(value))
                 {
                     _vatRate = value;
                 }
@@ -91,7 +99,7 @@ namespace Brasserie.Model.Restaurant.Catering
             get => _pictureName;
             set
             {
-                if (Utilities.EntriesValidation.ValidUtils.CheckEntryPictureName(value))
+                if (ValidUtils.CheckFileFormat(value, ALLOWED_PICTURE_FILE_FORMATS))
                 {
                     _pictureName = value;
                 }

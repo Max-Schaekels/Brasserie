@@ -15,6 +15,7 @@ namespace Brasserie.Model.Restaurant.People
         private bool _gender;
         private string _email;
         private string _mobilePhoneNumber;
+        private static int _totalPersons;
 
         public Person(int id, string lastName = "nom", string firstName = "prenom", bool gender = true, string email = "", string mobilePhoneNumber = "")
         {
@@ -24,9 +25,14 @@ namespace Brasserie.Model.Restaurant.People
             Gender = gender;
             Email = email;
             MobilePhoneNumber = mobilePhoneNumber;
-            
+            TotalPersons++;
+
+
         }
-        public Person() { }
+        public Person()
+        {
+            TotalPersons++;
+        }
 
         /// <summary>
         /// Id number
@@ -177,6 +183,7 @@ namespace Brasserie.Model.Restaurant.People
             }
             return false;
         }
+        public static int TotalPersons { get => _totalPersons; private set => _totalPersons = value; }
 
 
 
