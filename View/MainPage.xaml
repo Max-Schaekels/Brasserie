@@ -56,10 +56,24 @@
 
             <Button
             x:Name="buttonTestTable"
-            Text="Créer tabme "
+            Text="Créer table "
             Clicked="buttonTestTable_Clicked"
             Style="{StaticResource TestButton}"
             />
+
+            <Button
+                x:Name="buttonTestInheritance"
+                Text="Test inheritance"
+                Clicked="buttonTestInheritance_Clicked"
+                Style="{StaticResource TestButton}"
+             />
+
+            <Button
+                x:Name="buttonTestDerivateItems"
+                Text="Test Derivate Items"
+                Clicked="buttonTestDerivateItems_Clicked"
+                Style="{StaticResource TestButton}"
+              />
 
 
 

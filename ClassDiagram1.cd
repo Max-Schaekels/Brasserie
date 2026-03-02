@@ -1,17 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Brasserie.Model.Restaurant.People.Person">
-    <Position X="1" Y="0.5" Width="2.5" />
+    <Position X="2" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAECEEACACAAAACQAAFAAAAAAAAAAAAAAAAAAgAACEk=</HashCode>
+      <HashCode>AAECEEECACAAAACQAAFAAAAAAAAAAAAAEAAAAgAACEk=</HashCode>
       <FileName>Model\Restaurant\People\Person.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Brasserie.Model.Restaurant.Catering.Item">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Position X="10" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>IAACKAgAAAAgAAAEAABAAAQABAAAAIAAAAAAIAAAAAA=</HashCode>
+      <HashCode>IACCKAgAAAAgAAAEAABAAAQABAAAAIAAABAAIAAAAAA=</HashCode>
       <FileName>Model\Restaurant\Catering\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brasserie.Model.Restaurant.People.Customer">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Brasserie.Model.Restaurant.People.Customer.CustomerType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Restaurant\People\Customer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAABAQAAAAAAAAA=</HashCode>
+      <FileName>Model\Restaurant\People\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brasserie.Model.Restaurant.People.Manager">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAgAAAAAoAAAAEQIAAAAAIACEIACAAAUKIAAACA=</HashCode>
+      <FileName>Model\Restaurant\People\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brasserie.Model.Restaurant.People.StaffMember">
+    <Position X="1.5" Y="5.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAACgAABAAAAEAAAACAIAAAAAEAAACAAAAAkQAoAA=</HashCode>
+      <FileName>Model\Restaurant\People\StaffMember.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
