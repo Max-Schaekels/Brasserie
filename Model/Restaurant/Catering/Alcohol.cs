@@ -23,6 +23,7 @@ namespace Brasserie.Model.Restaurant.Catering
                 if (ValidUtils.IsInRange(value, MINIMUM_PERCENTAGE, MAXIMUM_PERCENTAGE))
                 {
                     _percentage = value;
+                    EvalNA();
                 }
             }
         }
@@ -35,20 +36,13 @@ namespace Brasserie.Model.Restaurant.Catering
 
         public void EvalNA()
         {
-            if(Percentage == 0.0)
-            {
-                IsNA = true;
-            }
-            else
-            {
-                IsNA = false;
-            }
+            IsNA = Percentage == 0.0;
         }
 
         public Alcohol(int id, string name, string description, double unitPrice, double vatRate, string pictureName, double volume, double percentage) : base(id, name, description, unitPrice, vatRate, pictureName, volume)
         {
             Percentage = percentage;
-            EvalNA();
+            
         }
     }
 }

@@ -94,7 +94,7 @@ namespace Brasserie.View
 
         private void buttonTestDerivateItems_Clicked(object sender, EventArgs e)
         {
-            Item item = new Item(id: 1, name: "Lasagne", description: "une grosse assiette de lasagne", unitPrice: 20.0, vatRate: 21.0, pictureName: "patebolo.jpg");
+            Item item = new Item(id: 1, name: "Lasagne", description: "une grosse assiette de lasagne", unitPrice: 20.0, vatRate: 21.0, pictureName: "lasagne.jpg");
             Drink drink = new Drink(id: 2, name: "Coca", description: "une canette de coca", unitPrice: 2.0, vatRate: 21.0, pictureName: "coca.jpg", 33.0);
             Dish dish = new Dish(id: 3, name: "Pizza", description: "une grosse pizza", unitPrice: 15.0, vatRate: 21.0, pictureName: "pizza.jpg");
             Soft soft = new Soft(id: 4, name: "Ice-Tea", description: "une canette d'ice tea", unitPrice: 2.5, vatRate: 21.0, pictureName: "icetea.jpg", volume: 33.0);

@@ -250,5 +250,7 @@ namespace Brasserie.Model.Restaurant.People
         {
             return $"{FirstName} {LastName} Mobile : {MobilePhoneNumber} Adress : {Address} Login : {Login}";
         }
+
+
     }
 }
