@@ -63,7 +63,7 @@ namespace Brasserie.Model.Restaurant.People
             get => _firstName;
             set
             {
-                if (CheckEntryName(value))
+                if (ValidUtils.CheckEntryName(value))
                 {
                     _firstName = value;
                 }
