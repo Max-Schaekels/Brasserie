@@ -11,6 +11,7 @@ namespace Brasserie.Model.Restaurant.Catering
     {
         private const double MINIMUM_PERCENTAGE = 0.0;
         private const double MAXIMUM_PERCENTAGE = 100.0;
+
         private double _percentage;
         private bool _isNA;
 
