@@ -75,6 +75,34 @@
                 Style="{StaticResource TestButton}"
               />
 
+            <Button
+                x:Name="buttonTestCollection"
+                Text="Test Collection"
+                Clicked="buttonTestCollection_Clicked"
+                Style="{StaticResource TestButton}"
+                />
+
+            <Button
+                x:Name="buttonTestOrder"
+                Text="Test Order"
+                Clicked="buttonTestOrder_Clicked"
+                Style="{StaticResource TestButton}"
+                />
+
+            <Button
+                x:Name="buttonTestLambdasOnCollection"
+                Text="Test de Lambdas On Collection"
+                Clicked="buttonTestLambdasOnCollection_Clicked"
+                Style="{StaticResource TestButton}"
+                />
+
+            <Button
+                x:Name="buttonExLambdaOnCollection"
+                Text="Exercice Lambda"
+                Clicked="buttonExLambdaOnCollection_Clicked"
+                Style="{StaticResource TestButton}"
+                />
+
 
 
             <!--<Image
