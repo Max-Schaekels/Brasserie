@@ -209,26 +209,105 @@ namespace Brasserie.View
             staff.Add(new Manager(6, "Balkan", "Fred", true, "balkan@gmail.com", "0479001280", "BE89 1190 1127 2280", "10, rue grande 6340 Nimy", 54000, "TrucMachin01"));
             staff.Add(new StaffMember(7, "Gutierez", "Manolo", true, "manolo140@gmail.com", "0498671011", "BE70 9012 1034 1931", "8, rue de la riviere 7000 Mons", 29800));
 
-            int nbemployer = 0; 
-
-            foreach (StaffMember personne in staff)
-            {
-                nbemployer++;
-            }
+            //a
+            int nbemployer = staff.Count;
             bool boolResult;
-            boolResult = staff.All(s => !string.IsNullOrWhiteSpace(s.MobilePhoneNumber));
-            boolResult = staff.Any(s => string.IsNullOrWhiteSpace(s.Email) && string.IsNullOrWhiteSpace(s.MobilePhoneNumber));
-            StaffMember membre1 = staff.First(s => string.IsNullOrWhiteSpace(s.Email) && string.IsNullOrWhiteSpace(s.MobilePhoneNumber));
-            List<StaffMember> memberWithoutEmail = staff.Where(s => string.IsNullOrWhiteSpace(s.Email)).ToList();
-            List<StaffMember> femaleMember = staff.Where(s => s.Gender == false).ToList();
+            //b
+            boolResult = staff.All(s => !string.IsNullOrEmpty(s.MobilePhoneNumber));
+            //c
+            boolResult = staff.Any(s => string.IsNullOrEmpty(s.Email) && string.IsNullOrEmpty(s.MobilePhoneNumber));
+            //d
+            StaffMember membre1 = staff.First(s => string.IsNullOrEmpty(s.Email) && string.IsNullOrEmpty(s.MobilePhoneNumber));
+            //e
+            List<StaffMember> memberWithoutEmail = staff.Where(s => string.IsNullOrEmpty(s.Email)).ToList();
+            //f
+            List<StaffMember> femaleMember = staff.Where(s => !s.Gender).ToList();
+            //g
             List<StaffMember> monsMember = staff.Where(s => s.Address.EndsWith("Mons")).ToList();
+            //h
             List<Manager> managers = staff.OfType<Manager>().ToList();
+            //i
             List<StaffMember> employeOderByName = staff.OrderBy(s => s.LastName).ToList();
+            //j
             double malePercentageInStaff = (double)staff.Count(s => s.Gender) / staff.Count * 100;
+            //k
             // List<StaffMember> employeOrderBySalary = staff.OrderBy(s => s.Salary).ToList(); pas possible car Salary est protected dans StaffMember et pas accessible dans MainPage
 
+            //version prof : 
+            //ObservableCollection<StaffMember> staff = new ObservableCollection<StaffMember>();
+
+            //staff.Add(new StaffMember(1, "Dutrieu", "Pierre", true, "dutrieur@gmail.com", "0498345678", "BE45 6781 2345 2490", "4, rue de la coupe 7000 Mons", 34000));
+            //staff.Add(new StaffMember(2, "Lalande", "Vanessa", false, "", "0485667098", "BE80 6581 1145 3496", "16, rue de la loi 7080 Nivelles", 32500));
+            //staff.Add(new Manager(3, "Jenlain", "Fabienne", false, "jenfab23@gmail.com", "0478901322", "BE80 4394 7739 1234", "13, rue de Mons 6000 Beaumont", 59000, "Password01"));
+            //staff.Add(new StaffMember(4, "Baulieu", "Jean", true, "", "", "BE23 1189 1390 1193", "5, rue des tilleus 7030 Ghlin", 36500));
+            //staff.Add(new StaffMember(5, "Gerardin", "Isabelle", false, "", "0475671038", "BE80 1782 4490 9113", "120, rue des drapiers 7000 Mons", 41000));
+            //staff.Add(new Manager(6, "Balkan", "Fred", true, "balkan@gmail.com", "0479001280", "BE89 1190 1127 2280", "10, rue grande 6340 Nimy", 54000, "TrucMachin01"));
+            //staff.Add(new StaffMember(7, "Gutierez", "Manolo", true, "manolo140@gmail.com", "0498671011", "BE70 9012 1034 1931", "8, rue de la riviere 7000 Mons", 29800));
+
+            //int staffCount = staff.Count;  //a)
 
 
+            //int lastId = staff.Max(stMemb => stMemb.Id); //b)
+
+
+            ////b Est-ce que tout le monde a bien un N° mobile renseigné ? donc  un N° de mobile pas égal à rien ou chaine vide.
+
+            //bool allHavePhoneNumber = staff.All(stMemb => !string.IsNullOrEmpty(stMemb.MobilePhoneNumber));
+
+
+            ////c) Est - ce qu’il y a un membre injoignable, qui n’a pas de N° de téléphone ni d’Email renseignés ? donc any au moins un qui a son mobile null ou vide ET son mail null ou vide
+
+            //bool noEMailNoPhone = staff.Any(stMemb => string.IsNullOrEmpty(stMemb.MobilePhoneNumber) && string.IsNullOrEmpty(stMemb.Email));
+
+
+            ////d) Le premier membre(celui du c)) (sa référence) qui n’a pas de N° de téléphone ni d’Email renseignés
+
+            //StaffMember staffMemberWithNoEMailNoPhone = staff.First(stMemb => string.IsNullOrEmpty(stMemb.MobilePhoneNumber) && string.IsNullOrEmpty(stMemb.Email));
+
+
+            ////e) La collection des employés n’ayant pas d’email renseigné : les membres pour lesquels la propriété Email est null ou vide
+
+            //ObservableCollection<StaffMember> selectNoMail = new ObservableCollection<StaffMember>(staff.Where(stMemb => string.IsNullOrEmpty(stMemb.Email)));
+
+            ////f)La collection des employées(de genre féminin). les membres pour lesquels la propriété Gender est à false
+
+            //ObservableCollection<StaffMember> selectWomans = new ObservableCollection<StaffMember>(staff.Where(stMemb => !stMemb.Gender == false));
+
+            ////g)La collection des employés résidant à Mons. Les membres dont pour lesquels la propriété Address n'est pas null (sinon ca plante) et dont l'adresse contient le cd postal 7000
+
+            //ObservableCollection<StaffMember> montois = new ObservableCollection<StaffMember>(staff.Where(stMemb => stMemb.Address != null && stMemb.Address.Contains("7000")));
+
+            ////h) La collection des managers. Les membres de type <Manager>
+
+            //ObservableCollection<StaffMember> managers = new ObservableCollection<StaffMember>(staff.OfType<Manager>());
+
+            ////i) La collection des employés triés par ordre alphabétique de nom de famille.
+
+            //ObservableCollection<StaffMember> staffSortedAlphabetically = new ObservableCollection<StaffMember>(staff.OrderBy(stMemb => stMemb.LastName));
+
+            ////j) Le pourcentage d’hommes dans le personnel(en une seule ligne de code).
+
+            //double ManPercentage = 100 * (double)staff.Count(stMemb => stMemb.Gender == true) / staff.Count;
+
+            ////k) pas possible  Salary n'est pas accessible!!! 
+
+        }
+
+        private void buttonTestItemsCollection_Clicked(object sender, EventArgs e)
+        {
+            Soft coca = new Soft(1, name: "Coca cola", "", 3.30, 21.0, "coca.jpg",  25);
+            Soft fanta = new Soft(2, name: "Fanta", "", 3.30, 21.0, "fanta.jpg",  25);
+            Beer brassTemps = new Beer(3, name: "Carapils", "", 3.30, 21.0, "biere.jpg", 25, 6.0, false, false);
+            Dish spaghBolo = new Dish(4, "Spaghetti bolo", "", 15.30, 21.0, "bolo.jpg");
+            Soft coca2 = new Soft(5, name: "Coca cola", "", 3.30, 21.0, "coca.jpg", 25);
+            ItemsCollection itCol = new ItemsCollection();
+            itCol.AddItem(coca);
+            itCol.AddItem(fanta);
+            itCol.AddItem(brassTemps);
+            itCol.AddItem(spaghBolo);
+            itCol.AddItem(coca2);//test to add an item who have the same name as another already in the list
+            itCol.DeleteItem(brassTemps);//delete one item
+            itCol.IndexPrices(5.00); //index 5% all prices fonction foreach plus fonctionnelle
         }
     }
 

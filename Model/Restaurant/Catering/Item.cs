@@ -11,6 +11,7 @@ namespace Brasserie.Model.Restaurant.Catering
     public class Item
     {
         private const int MINIMUM_DESCRIPTION_LENGTH = 10;
+        private const int MINIMUM_NAME_LENGTH = 3;
         public static readonly string[] ALLOWED_PICTURE_FILE_FORMATS = { "jpg", "png" } ;
 
         private string _name;
@@ -39,7 +40,7 @@ namespace Brasserie.Model.Restaurant.Catering
             get => _name;
             set
             {
-                if (ValidUtils.CheckEntryName(value))
+                if (ValidUtils.CheckEntryDescription(value, MINIMUM_NAME_LENGTH))
                 {
                     _name = value;
                 }
