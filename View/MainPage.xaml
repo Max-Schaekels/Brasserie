@@ -108,7 +108,21 @@
                 Text="Test item collection"
                 Clicked="buttonTestItemsCollection_Clicked"
                 Style="{StaticResource TestButton}"
-                /> 
+                />
+
+            <Button
+                x:Name="buttonTestReadWriteTextFileWithList"
+                Text="Test read write text file with list"
+                Clicked="buttonTestReadWriteTextFileWithList_Clicked"
+                Style="{StaticResource TestButton}"
+                />
+            
+            <Button
+                x:Name="buttonTestPolymorphism"
+                Text="test polymorphism"
+                Clicked="buttonTestPolymorphism_Clicked"
+                Style="{StaticResource TestButton}"
+                />
 
 
 

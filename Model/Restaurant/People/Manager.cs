@@ -251,6 +251,10 @@ namespace Brasserie.Model.Restaurant.People
             return $"{FirstName} {LastName} Mobile : {MobilePhoneNumber} Adress : {Address} Login : {Login}";
         }
 
+        public override double WageCalculation()
+        {
+            return  Salary * (1 + BONUS_RATE);
+        }
 
     }
 }

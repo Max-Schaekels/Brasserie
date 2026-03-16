@@ -309,6 +309,37 @@ namespace Brasserie.View
             itCol.DeleteItem(brassTemps);//delete one item
             itCol.IndexPrices(5.00); //index 5% all prices fonction foreach plus fonctionnelle
         }
+
+        private void buttonTestReadWriteTextFileWithList_Clicked(object sender, EventArgs e)
+        {
+            string csvFilePath = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Csv\Persons.csv";
+            //ObservableCollection<string> personsList = new ObservableCollection<string>();//create empty collection of string
+            ObservableCollection<string> personsList = new ObservableCollection<string>(File.ReadAllLines(csvFilePath)); // copy each line in the collection
+            string s = "";
+            foreach (string line in personsList)
+            {
+                s += $"\n{line}";
+            }
+            lblDebug.Text = s; //print collection's content
+                               //Add persons to collection.
+            personsList.Add("Customer;10;Maggi;Toni;true;maggiton@gmail.com;0491609830;Occasional");
+            personsList.Add("Customer;11;Fernez;Jean;true;jeanfernez@gmail.com;0480458801;Regular");
+            //write all lines in a new csv file.
+            File.WriteAllLines(@"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Csv\PersonsRewrite.csv", personsList);
+        }
+
+        private void buttonTestPolymorphism_Clicked(object sender, EventArgs e)
+        {
+            Beer brasseTemps = new Beer(id: 3, name: "Brasse Temps", description: "", unitPrice: 3.30, pictureName: "biere.jpg", vatRate: 21.0, volume: 25, percentage: 6.0, isTrappistBeer: false, isAbbeyBeer: false);
+            Alcohol al = brasseTemps;
+            Drink d = brasseTemps;
+            Item it = brasseTemps;
+
+            //brasseTemps = it;
+            lblDebug.Text = it.GetType().ToString();
+
+            Beer b = (Beer)it;
+        }
     }
 
 }
