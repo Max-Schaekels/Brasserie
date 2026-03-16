@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace Brasserie.Model.Restaurant.Catering
 {
@@ -23,10 +25,15 @@ namespace Brasserie.Model.Restaurant.Catering
             set => _isTrappistBeer = value;
         }
 
+        public Beer() : base()
+        {
+        }
         public Beer(int id, string name, string description, double unitPrice, double vatRate, string pictureName, double volume, double percentage, bool isAbbeyBeer, bool isTrappistBeer) : base(id, name, description, unitPrice, vatRate, pictureName, volume, percentage)
         {
             IsAbbeyBeer = isAbbeyBeer;
             IsTrappistBeer = isTrappistBeer;
         }
+
+        
     }
 }

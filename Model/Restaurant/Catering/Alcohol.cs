@@ -38,7 +38,9 @@ namespace Brasserie.Model.Restaurant.Catering
         {
             IsNA = Percentage == 0.0;
         }
-
+        public Alcohol() : base()
+        {
+        }
         public Alcohol(int id, string name, string description, double unitPrice, double vatRate, string pictureName, double volume, double percentage) : base(id, name, description, unitPrice, vatRate, pictureName, volume)
         {
             Percentage = percentage;
