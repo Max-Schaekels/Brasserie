@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Brasserie.Model.Restaurant.Catering
 {
-    public class Item
+    public abstract class Item
     {
         private const int MINIMUM_DESCRIPTION_LENGTH = 10;
         private const int MINIMUM_NAME_LENGTH = 3;
@@ -107,6 +107,11 @@ namespace Brasserie.Model.Restaurant.Catering
             }
         }
 
+        /// <summary>
+        /// generate auto description of this item
+        /// </summary>
+        /// <returns>auto description</returns> 
+        public abstract string AutoDescription();
 
     }
 }

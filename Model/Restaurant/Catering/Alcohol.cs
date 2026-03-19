@@ -46,5 +46,13 @@ namespace Brasserie.Model.Restaurant.Catering
             Percentage = percentage;
             
         }
+
+        /// <summary>
+        /// Auto Description for this Alcohol
+        /// </summary>
+        public override string AutoDescription()
+        {
+            return $"{Name} {Volume} cl, {Description} avec un % d'alcool de {Percentage} et au prix de {UnitPrice}";
+        }
     }
 }

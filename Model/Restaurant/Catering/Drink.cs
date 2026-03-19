@@ -32,5 +32,13 @@ namespace Brasserie.Model.Restaurant.Catering
         {
             Volume = volume;
         }
+
+        /// <summary>
+        /// Auto Description for this Drink
+        /// </summary>
+        public override string AutoDescription()
+        {
+            return $"{Name} {Volume} cl, {Description} au prix de {UnitPrice}";
+        }
     }
 }

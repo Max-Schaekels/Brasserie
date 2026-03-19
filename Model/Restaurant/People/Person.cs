@@ -8,7 +8,7 @@ using Brasserie.Utilities.EntriesValidation;
 
 namespace Brasserie.Model.Restaurant.People
 {
-    public class Person
+    public abstract class Person
     {
         private int _id;
         private string _lastName;

@@ -34,6 +34,12 @@ namespace Brasserie.Model.Restaurant.Catering
             IsTrappistBeer = isTrappistBeer;
         }
 
-        
+        /// <summary>
+        /// Auto Description for this Beer
+        /// </summary>
+        public override string AutoDescription()
+        {
+            return $"{Name} {Volume}cl, {Description} avec un taux d'alcool de {Percentage}%, bière d'abbaye : {IsAbbeyBeer} Trappiste : {IsTrappistBeer} et au prix de {UnitPrice}";
+        }
     }
 }

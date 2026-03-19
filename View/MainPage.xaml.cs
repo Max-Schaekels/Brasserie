@@ -43,36 +43,36 @@ namespace Brasserie.View
         //    SemanticScreenReader.Announce(CounterBtn.Text);
         //}
 
-        private void buttonTestCreateFirstPersons_Clicked(object sender, EventArgs e)
-        {
-            Person firstPerson = new Person(id: 1, lastName: "Beumier", firstName: "Damien", gender: true, email: "dambeumier@gmail.com", mobilePhoneNumber: "0489142293");
-            Person secondPerson = new Person(id: 2, lastName: "Deroisin", firstName: "Sophie", gender: false, email: "sophiederoisin@gmail.com", mobilePhoneNumber: "0473121314");
-            Person ThirdPerson = new Person(3, "Jandrin", "Marc", true, "jandrinmarc@gmail.com", mobilePhoneNumber: "0485556678");
-            Person FourthPerson = new Person(4, "Lupant", "Sebastien");
-            Person FifthPerson = new Person();
-            //Person TestPerson = new Person( lastName: "Lupant", firstName: "Sebastien");
+        //private void buttonTestCreateFirstPersons_Clicked(object sender, EventArgs e)
+        //{
+        //    //Person firstPerson = new Person(id: 1, lastName: "Beumier", firstName: "Damien", gender: true, email: "dambeumier@gmail.com", mobilePhoneNumber: "0489142293");
+        //    Person secondPerson = new Person(id: 2, lastName: "Deroisin", firstName: "Sophie", gender: false, email: "sophiederoisin@gmail.com", mobilePhoneNumber: "0473121314");
+        //    Person ThirdPerson = new Person(3, "Jandrin", "Marc", true, "jandrinmarc@gmail.com", mobilePhoneNumber: "0485556678");
+        //    Person FourthPerson = new Person(4, "Lupant", "Sebastien");
+        //    Person FifthPerson = new Person();
+        //    //Person TestPerson = new Person( lastName: "Lupant", firstName: "Sebastien");
 
-            Person p;
+        //    //Person p;
 
-            p = new Person(6, "Tardif", "Jean");
+        //    //p = new Person(6, "Tardif", "Jean");
 
-            //secondPerson._email = "04.be";
-            //secondPerson._mobilePhoneNumber = "44719";
+        //    //secondPerson._email = "04.be";
+        //    //secondPerson._mobilePhoneNumber = "44719";
 
-        }
+        //}
 
-        private void buttonTestEncapsulation_Clicked(object sender, EventArgs e)
-        {
-            Person p = new Person(id: 2, lastName: "Deroisin", firstName: "Sophie", gender: false, email: "sophiederoisin@gmail.com", mobilePhoneNumber: "0473121314");
-            p.FirstName = "Dark-Vador";
-            lblDebug.Text = p.FirstName;
-        }
+        //private void buttonTestEncapsulation_Clicked(object sender, EventArgs e)
+        //{
+        //    Person p = new Person(id: 2, lastName: "Deroisin", firstName: "Sophie", gender: false, email: "sophiederoisin@gmail.com", mobilePhoneNumber: "0473121314");
+        //    p.FirstName = "Dark-Vador";
+        //    lblDebug.Text = p.FirstName;
+        //}
 
-        private void buttonTestCreateItem_Clicked(object sender, EventArgs e)
-        {
-            Item item = new Item(id: 1, name: "Lasagne", description: "une grosse assiette de lasagne", unitPrice: 20.0, vatRate: 21.0, pictureName: "patebolo.jpg");
-            lblItemDebug.Text = $"Id : {item.Id} Name : {item.Name} Description : {item.Description} UnitPrice : {item.UnitPrice} VatRate : {item.VatRate} PictureName : {item.PictureName}";
-        }
+        //private void buttonTestCreateItem_Clicked(object sender, EventArgs e)
+        //{
+        //    Item item = new Item(id: 1, name: "Lasagne", description: "une grosse assiette de lasagne", unitPrice: 20.0, vatRate: 21.0, pictureName: "patebolo.jpg");
+        //    lblItemDebug.Text = $"Id : {item.Id} Name : {item.Name} Description : {item.Description} UnitPrice : {item.UnitPrice} VatRate : {item.VatRate} PictureName : {item.PictureName}";
+        //}
 
         private void buttonTestStatic_Clicked(object sender, EventArgs e)
         {
@@ -96,7 +96,7 @@ namespace Brasserie.View
 
         private void buttonTestDerivateItems_Clicked(object sender, EventArgs e)
         {
-            Item item = new Item(id: 1, name: "Lasagne", description: "une grosse assiette de lasagne", unitPrice: 20.0, vatRate: 21.0, pictureName: "lasagne.jpg");
+            //Item item = new Item(id: 1, name: "Lasagne", description: "une grosse assiette de lasagne", unitPrice: 20.0, vatRate: 21.0, pictureName: "lasagne.jpg");
             Drink drink = new Drink(id: 2, name: "Coca", description: "une canette de coca", unitPrice: 2.0, vatRate: 21.0, pictureName: "coca.jpg", 33.0);
             Dish dish = new Dish(id: 3, name: "Pizza", description: "une grosse pizza", unitPrice: 15.0, vatRate: 21.0, pictureName: "pizza.jpg");
             Soft soft = new Soft(id: 4, name: "Ice-Tea", description: "une canette d'ice tea", unitPrice: 2.5, vatRate: 21.0, pictureName: "icetea.jpg", volume: 33.0);
