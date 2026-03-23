@@ -1,0 +1,6 @@
+FOLDER,C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Csv\
+ITEMS,Items.csv
+TABLES,Tables.csv
+PEOPLE,Persons.csv
+CUSTOMERS,Customers.csv
+STAFFMEMBERS, StaffMembers.csv

@@ -1,0 +1,4 @@
+Class;Id;LastName;FirstName;Gender;Email;MobilePhoneNumber;Type
+CUSTOMER;1;Beumier;Damien;true;beumierdamien@gmail.com;485678234;New
+CUSTOMER;2;Deroisin ;Sophie;false;deroisinsophie@gmail.com;456789034;New
+CUSTOMER;3;Darmani;Izaak;true;darmani2345@gmail.com;479345090;New

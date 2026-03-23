@@ -3,6 +3,8 @@ using Brasserie.Model.Restaurant.Activity;
 using Brasserie.Model.Restaurant.Catering;
 using Brasserie.Model.Restaurant.Design;
 using Brasserie.Model.Restaurant.People;
+using Brasserie.Utilities.DataAccess;
+using Brasserie.Utilities.DataAccess.Files;
 using System.Collections.ObjectModel;
 using static Brasserie.Model.Restaurant.People.Customer;
 
@@ -339,6 +341,17 @@ namespace Brasserie.View
             lblDebug.Text = it.GetType().ToString();
 
             Beer b = (Beer)it;
+        }
+
+        private void buttonTestInterfaceAndDataAccess_Clicked(object sender, EventArgs e)
+        {
+            string CONFIG_FILE = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Config.txt";
+            DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
+            DataAccessCsvFile da = new DataAccessCsvFile(dataFilesManager);
+            ItemsCollection items = da.GetAllItems();
+            items.ToList().ForEach(it => lblDebug.Text += $"\n Item: {it.Name} - prix {it.UnitPrice.ToString()}€ - {it.AutoDescription()}");
+            CustomersCollection customers = da.GetAllCustomers();
+            customers.ToList().ForEach(c => lblDebug.Text += $"\n Client:{c.Id} {c.FirstName} {c.LastName}");
         }
     }
 
