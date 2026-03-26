@@ -172,33 +172,49 @@ namespace Brasserie.Utilities.DataAccess
                 return null;
             }
         }
+
+
+        
+        private static StaffMember GetStaffMember(string csvline)
+        {
+            string[] fields = csvline.Split(';');
+            switch (fields[0])
+            {
+                case "STAFFMEMBER":
+                    return new StaffMember(id: int.Parse(fields[1]), lastName: fields[2], firstName: fields[3], gender: bool.Parse(fields[4]), email: fields[5], phone: fields[6], bankAccount: fields[8], address: fields[9], salary: double.Parse(fields[10]));
+                case "MANAGER":
+                    return new Manager(id: int.Parse(fields[1]), lastName: fields[2], firstName: fields[3], gender: bool.Parse(fields[4]), email: fields[5], phone: fields[6], bankAccount: fields[8], address: fields[9], salary: double.Parse(fields[10]), password : fields[11]);
+                default:
+                    return null;
+            }
+  
+        }
         public override StaffMembersCollection GetAllStaffMembers()
         {
-            throw new NotImplementedException();
 
-            //List<string> listToRead = new List<string>();
-            //StaffMembersCollection staffmembers = new StaffMembersCollection();
-            //AccessPath = DataFilesManager.DataFiles.GetFilePathByCodeFunction("STAFFMEMBERS");
-            //if (IsValidAccessPath)
-            //{
-            //    listToRead = System.IO.File.ReadAllLines(AccessPath).ToList();
-            //    //remove first title line
-            //    listToRead.RemoveAt(0);
-            //    foreach (string s in listToRead)
-            //    {
-            //        StaffMember sm = GetStaffMember(s);
-            //        if (s != null)
-            //        {
-            //            staffmembers.AddStaffMember(sm);
-            //        }
-            //    }
-            //    return staffmembers;
-            //}
-            //else
-            //{
-            //    //Console.WriteLine("GetAllItems Failes -> File doesnt exist");
-            //    return null;
-            //}
+            List<string> listToRead = new List<string>();
+            StaffMembersCollection staffmembers = new StaffMembersCollection();
+            AccessPath = DataFilesManager.DataFiles.GetFilePathByCodeFunction("STAFFMEMBERS");
+            if (IsValidAccessPath)
+            {
+                listToRead = System.IO.File.ReadAllLines(AccessPath).ToList();
+                //remove first title line
+                listToRead.RemoveAt(0);
+                foreach (string s in listToRead)
+                {
+                    StaffMember sm = GetStaffMember(s);
+                    if (s != null)
+                    {
+                        staffmembers.AddStaffMember(sm);
+                    }
+                }
+                return staffmembers;
+            }
+            else
+            {
+                //Console.WriteLine("GetAllItems Failes -> File doesnt exist");
+                return null;
+            }
 
         }
         /// <summary>

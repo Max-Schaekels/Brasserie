@@ -131,7 +131,14 @@
                 Clicked="buttonTestInterfaceAndDataAccess_Clicked"
                 Style="{StaticResource TestButton}"
                 />
-                
+
+            <Button 
+                x:Name="buttonTestStaffMembersAndManagers"
+                Text="test staffmember et manager"
+                Clicked="buttonTestStaffMembersAndManagers_Clicked"
+                Style="{StaticResource TestButton}"
+                />
+
 
 
 

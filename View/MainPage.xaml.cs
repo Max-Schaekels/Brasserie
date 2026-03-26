@@ -327,7 +327,9 @@ namespace Brasserie.View
             personsList.Add("Customer;10;Maggi;Toni;true;maggiton@gmail.com;0491609830;Occasional");
             personsList.Add("Customer;11;Fernez;Jean;true;jeanfernez@gmail.com;0480458801;Regular");
             //write all lines in a new csv file.
-            File.WriteAllLines(@"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Csv\PersonsRewrite.csv", personsList);
+            File.WriteAllLines(@"C:\POO\Brasserie\Configuration\Datas\Csv\PersonsRewrite.csv", personsList);
+            // chemin pc portable : C:\POO\Brasserie\Configuration\Datas\Csv\
+            //chemin tour : C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Csv\PersonsRewrite.csv
         }
 
         private void buttonTestPolymorphism_Clicked(object sender, EventArgs e)
@@ -345,13 +347,25 @@ namespace Brasserie.View
 
         private void buttonTestInterfaceAndDataAccess_Clicked(object sender, EventArgs e)
         {
-            string CONFIG_FILE = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Config.txt";
+            string CONFIG_FILE = @"C:\POO\Brasserie\Configuration\Datas\Config.txt";
             DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
             DataAccessCsvFile da = new DataAccessCsvFile(dataFilesManager);
             ItemsCollection items = da.GetAllItems();
             items.ToList().ForEach(it => lblDebug.Text += $"\n Item: {it.Name} - prix {it.UnitPrice.ToString()}€ - {it.AutoDescription()}");
             CustomersCollection customers = da.GetAllCustomers();
             customers.ToList().ForEach(c => lblDebug.Text += $"\n Client:{c.Id} {c.FirstName} {c.LastName}");
+
+            //chemin pc portable C:\POO\Brasserie\Configuration\Datas\Config.txt
+            //chemin tour  C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Config.txt
+        }
+
+        private void buttonTestStaffMembersAndManagers_Clicked(object sender, EventArgs e)
+        {
+            string CONFIG_FILE = @"C:\POO\Brasserie\Configuration\Datas\Config.txt";
+            DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
+            DataAccessCsvFile da = new DataAccessCsvFile(dataFilesManager);
+            StaffMembersCollection sm = da.GetAllStaffMembers();
+            sm.ToList().ForEach(m => lblDebug.Text += $"\n Prenom : {m.FirstName} - Nom : {m.LastName}  - Adresse : {m.Address}  ");
         }
     }
 
