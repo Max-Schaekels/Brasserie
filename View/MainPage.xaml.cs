@@ -12,7 +12,9 @@ namespace Brasserie.View
 {
     public partial class MainPage : ContentPage
     {
-        //int count = 0;
+        
+        private const string CONFIG_HOME = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Config.txt";
+        private const string CONFIG_PORT = @"C:\POO\Brasserie\Configuration\Datas\Config.txt";
 
         Counter myCounter;
 
@@ -314,7 +316,7 @@ namespace Brasserie.View
 
         private void buttonTestReadWriteTextFileWithList_Clicked(object sender, EventArgs e)
         {
-            string csvFilePath = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Csv\Persons.csv";
+            string csvFilePath = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Csv\PersonsRewrite.csv";
             //ObservableCollection<string> personsList = new ObservableCollection<string>();//create empty collection of string
             ObservableCollection<string> personsList = new ObservableCollection<string>(File.ReadAllLines(csvFilePath)); // copy each line in the collection
             string s = "";
@@ -328,7 +330,7 @@ namespace Brasserie.View
             personsList.Add("Customer;11;Fernez;Jean;true;jeanfernez@gmail.com;0480458801;Regular");
             //write all lines in a new csv file.
             File.WriteAllLines(@"C:\POO\Brasserie\Configuration\Datas\Csv\PersonsRewrite.csv", personsList);
-            // chemin pc portable : C:\POO\Brasserie\Configuration\Datas\Csv\
+            // chemin pc portable : C:\POO\Brasserie\Configuration\Datas\Csv\  incorrect
             //chemin tour : C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Csv\PersonsRewrite.csv
         }
 
@@ -347,7 +349,7 @@ namespace Brasserie.View
 
         private void buttonTestInterfaceAndDataAccess_Clicked(object sender, EventArgs e)
         {
-            string CONFIG_FILE = @"C:\POO\Brasserie\Configuration\Datas\Config.txt";
+            string CONFIG_FILE = CONFIG_HOME;
             DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
             DataAccessCsvFile da = new DataAccessCsvFile(dataFilesManager);
             ItemsCollection items = da.GetAllItems();
@@ -361,7 +363,7 @@ namespace Brasserie.View
 
         private void buttonTestStaffMembersAndManagers_Clicked(object sender, EventArgs e)
         {
-            string CONFIG_FILE = @"C:\POO\Brasserie\Configuration\Datas\Config.txt";
+            string CONFIG_FILE = CONFIG_HOME;
             DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
             DataAccessCsvFile da = new DataAccessCsvFile(dataFilesManager);
             StaffMembersCollection sm = da.GetAllStaffMembers();
