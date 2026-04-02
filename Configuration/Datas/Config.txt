@@ -1,4 +1,4 @@
-FOLDER,C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Csv\
+FOLDER,C:\POO\Brasserie\Configuration\Datas\Csv\
 ITEMS,Items.csv
 TABLES,Tables.csv
 PEOPLE,Persons.csv

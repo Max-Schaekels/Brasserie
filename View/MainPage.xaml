@@ -138,6 +138,20 @@
                 Clicked="buttonTestStaffMembersAndManagers_Clicked"
                 Style="{StaticResource TestButton}"
                 />
+            
+            <Button
+                x:Name="buttonTestDataAccessJsonFile"
+                Text="test json"
+                Clicked="buttonTestDataAccessJsonFile_Clicked"
+                Style="{StaticResource TestButton}"
+                />
+            
+            <Button
+                x:Name="buttonTestCreateJsonFIleFromCsvSource"
+                Text="test importation json"
+                Clicked="buttonTestCreateJsonFIleFromCsvSource_Clicked"
+                Style="{StaticResource TestButton}"
+            />
 
 
 

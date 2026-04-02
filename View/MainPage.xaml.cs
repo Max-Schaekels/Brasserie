@@ -13,8 +13,11 @@ namespace Brasserie.View
     public partial class MainPage : ContentPage
     {
         
-        private const string CONFIG_HOME = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Config.txt";
-        private const string CONFIG_PORT = @"C:\POO\Brasserie\Configuration\Datas\Config.txt";
+        private const string CONFIG_HOME_CSV = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\Config.txt";
+        private const string CONFIG_PORT_CSV = @"C:\POO\Brasserie\Configuration\Datas\Config.txt";
+
+        private const string CONFIG_HOME_JSON = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\ConfigJson.txt";
+        private const string CONFIG_PORT_JSON = @"C:\POO\Brasserie\Configuration\Datas\ConfigJson.txt";
 
         Counter myCounter;
 
@@ -349,7 +352,7 @@ namespace Brasserie.View
 
         private void buttonTestInterfaceAndDataAccess_Clicked(object sender, EventArgs e)
         {
-            string CONFIG_FILE = CONFIG_HOME;
+            string CONFIG_FILE = CONFIG_PORT_CSV;
             DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
             DataAccessCsvFile da = new DataAccessCsvFile(dataFilesManager);
             ItemsCollection items = da.GetAllItems();
@@ -363,11 +366,42 @@ namespace Brasserie.View
 
         private void buttonTestStaffMembersAndManagers_Clicked(object sender, EventArgs e)
         {
-            string CONFIG_FILE = CONFIG_HOME;
+            string CONFIG_FILE = CONFIG_PORT_CSV;
             DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
             DataAccessCsvFile da = new DataAccessCsvFile(dataFilesManager);
             StaffMembersCollection sm = da.GetAllStaffMembers();
             sm.ToList().ForEach(m => lblDebug.Text += $"\n Prenom : {m.FirstName} - Nom : {m.LastName}  - Adresse : {m.Address}  ");
+        }
+
+        private void buttonTestDataAccessJsonFile_Clicked(object sender, EventArgs e)
+        {
+            string CONFIG_FILE = CONFIG_PORT_JSON;
+            DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
+            DataAccessJsonFile da = new DataAccessJsonFile(dataFilesManager);
+            ItemsCollection items = da.GetAllItems();
+            items.ToList().ForEach(it => lblDebug.Text += $"\n Item: {it.Name} - prix {it.UnitPrice.ToString()}€ - {it.AutoDescription()}");
+            items[0].Description = "on a change la description du 1er item";
+            items[5].UnitPrice = 99.9; //changement du prix du 6ème item
+                                       //sauvegarde des données
+            da.UpdateAllItems(items);
+            //items.AddItem(new Dish(id: 70, name: "Pizza Royale", description: "une pizza avec tout dessus", unitPrice: 25.0, vatRate: 21.0, pictureName: "pizza.jpg"));
+            //items.DeleteItem(items[-2]);//suppression du 3ème item
+            //items.ToList().ForEach(it => lblDebug.Text += $"\n Item: {it.Name} - prix {it.UnitPrice.ToString()}€ - {it.AutoDescription()}");
+            //da.UpdateAllItems(items);//sauvegarde des données après ajout et suppression
+            StaffMembersCollection sm = da.GetAllStaffMembers();
+            sm.ToList().ForEach(m => lblDebug.Text += $"\n Prenom : {m.FirstName} - Nom : {m.LastName}  - Adresse : {m.Address}  ");
+        }
+
+        private void buttonTestCreateJsonFIleFromCsvSource_Clicked(object sender, EventArgs e)
+        {
+            string CONFIG_CSV_FILE = CONFIG_PORT_CSV;
+            string CONFIG_FILE = CONFIG_PORT_JSON; //contain json paths
+            DataFilesManager dfmCsv = new DataFilesManager(CONFIG_CSV_FILE);
+            DataAccessCsvFile daCsv = new DataAccessCsvFile(dfmCsv);
+            ItemsCollection ic = daCsv.GetAllItems(); //get ItemsCollection from csv source
+            DataFilesManager dfmJson = new DataFilesManager(CONFIG_FILE);
+            DataAccessJsonFile daJson = new DataAccessJsonFile(dfmJson);
+            daJson.UpdateAllItems(ic); //create json file from ic ItemsCollection populated with csv datas
         }
     }
 
