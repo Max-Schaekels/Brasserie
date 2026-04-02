@@ -399,9 +399,11 @@ namespace Brasserie.View
             DataFilesManager dfmCsv = new DataFilesManager(CONFIG_CSV_FILE);
             DataAccessCsvFile daCsv = new DataAccessCsvFile(dfmCsv);
             ItemsCollection ic = daCsv.GetAllItems(); //get ItemsCollection from csv source
+            StaffMembersCollection smc = daCsv.GetAllStaffMembers(); //get StaffMembersCollection from csv source
             DataFilesManager dfmJson = new DataFilesManager(CONFIG_FILE);
             DataAccessJsonFile daJson = new DataAccessJsonFile(dfmJson);
             daJson.UpdateAllItems(ic); //create json file from ic ItemsCollection populated with csv datas
+            daJson.UpdateAllStaffMembers(smc); //create json file from smc StaffMembersCollection populated with csv datas
         }
     }
 

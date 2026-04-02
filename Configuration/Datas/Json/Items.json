@@ -4,7 +4,7 @@
     {
       "$type": "Brasserie.Model.Restaurant.Catering.Dish, Brasserie",
       "Name": "Spaghettis bolognaise",
-      "Description": "on a change la description du 1er item",
+      "Description": "p�tes sauce tomate et viande hach�e",
       "Id": 1,
       "UnitPrice": 17.5,
       "VatRate": 21.0,
@@ -53,7 +53,7 @@
       "Name": "Schwepps Tonic",
       "Description": "Boisson p�tillante au citron",
       "Id": 9,
-      "UnitPrice": 99.9,
+      "UnitPrice": 3.6,
       "VatRate": 21.0,
       "PictureName": "schwepps_tonic25.jpg"
     },
