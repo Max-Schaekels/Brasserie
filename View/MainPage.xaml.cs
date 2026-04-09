@@ -5,6 +5,9 @@ using Brasserie.Model.Restaurant.Design;
 using Brasserie.Model.Restaurant.People;
 using Brasserie.Utilities.DataAccess;
 using Brasserie.Utilities.DataAccess.Files;
+using Brasserie.Utilities.Interfaces;
+using Brasserie.Utilities.Services;
+using Brasserie.ViewModel;
 using System.Collections.ObjectModel;
 using static Brasserie.Model.Restaurant.People.Customer;
 
@@ -19,13 +22,31 @@ namespace Brasserie.View
         private const string CONFIG_HOME_JSON = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\ConfigJson.txt";
         private const string CONFIG_PORT_JSON = @"C:\POO\Brasserie\Configuration\Datas\ConfigJson.txt";
 
-        Counter myCounter;
+       
 
-        public MainPage()
+        public MainPage(MainPageViewModel mainPageVM, IDataAccess dataAccessService, IAlertService alertService)
         {
+            dataAccess = dataAccessService;
+            alert = alertService;
+            mainPageViewModel = mainPageVM;
+            // Définition du BindingContext avec le ViewModel
+            BindingContext = mainPageVM;
             InitializeComponent();
-            myCounter = new Counter();
+            
         }
+
+        /// <summary>
+        /// Manager to the data access (Csv, Json, XAML, SQL...)
+        /// </summary>
+        private IDataAccess dataAccess;
+        /// <summary>
+        /// Manager to the data access (Csv, Json, XAML, SQL...)
+        /// </summary>
+        private IAlertService alert;
+        /// <summary>
+        /// keep a reference to the ViewModel for eventual testings
+        /// </summary>
+        private MainPageViewModel mainPageViewModel;
 
         //private void OnCounterClicked(object sender, EventArgs e)
         //{
@@ -404,6 +425,18 @@ namespace Brasserie.View
             DataAccessJsonFile daJson = new DataAccessJsonFile(dfmJson);
             daJson.UpdateAllItems(ic); //create json file from ic ItemsCollection populated with csv datas
             daJson.UpdateAllStaffMembers(smc); //create json file from smc StaffMembersCollection populated with csv datas
+        }
+
+        private async void buttonTestDisplayAlert_Clicked(object sender, EventArgs e)
+        {
+            AlertServiceDisplay alertService = new AlertServiceDisplay();
+            await alertService.ShowAlert("Titre de mon pop up", "voici un exemple d'alerte");
+            if (await alertService.ShowConfirmation("Questionnaire", "Etes-vous d'accord de répondre à une question ?", "Oui je suis d'accord", "Non pas maintenant"))
+            {
+                var userEntry = await alertService.ShowPrompt("Saisie du nom", "Votre prénom ? ");
+                var userChoice = await alertService.ShowQuestion("Votre brasserie préférée ?", "ORVAL", "ST FEUILLIEN", "CHIMAY");
+                await alertService.ShowAlert("Choix brasserie", $" Merci {userEntry} , voici votre choix : {userChoice}");
+            }
         }
     }
 

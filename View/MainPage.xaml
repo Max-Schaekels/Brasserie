@@ -8,17 +8,43 @@
             <Style x:Key= "TestButton" TargetType ="Button">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="FontSize" Value="12" />
+                <Setter Property="WidthRequest" Value="250"/>
                 <Setter Property="BackgroundColor" Value="Grey"/>
             </Style>
+            <Style x:Key="ListViewStyle" TargetType="ListView">
+                <Setter Property="VerticalScrollBarVisibility" Value="Always" />
+                <!-- Autres setters pour le style si nécessaire -->
+            </Style>
         </ResourceDictionary>
+        <DataTemplate x:Key="ListViewItemTemplate">
+            <ViewCell>
+                <Grid Padding="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="2" Source="{Binding PictureName}" Aspect="AspectFill" HeightRequest="80" WidthRequest="80" />
+                    <Label Grid.Column="1" Margin="10,0,0,0" Text="{Binding Name}" FontAttributes="Bold" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding UnitPrice, StringFormat='{}{0:F2} €'}" Margin="10,0,0,0" FontAttributes="Italic" VerticalOptions="End" />
+                </Grid>
+            </ViewCell>
+        </DataTemplate>
     </ContentPage.Resources>
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            
-            <!--<Button
+        <Grid Margin="0,20,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout Grid.Column="0" Padding="5,0" Spacing="5">
+
+                <!--<Button
             x:Name="buttonTestCreateFirstPersons"
             Text=" Créer mes premières personnes"
             Clicked="buttonTestCreateFirstPersons_Clicked"
@@ -152,11 +178,33 @@
                 Clicked="buttonTestCreateJsonFIleFromCsvSource_Clicked"
                 Style="{StaticResource TestButton}"
             />
+            
+            
+            <Button
+                x:Name="buttonTestDisplayAlert"
+                Text="test display alert"
+                Clicked="buttonTestDisplayAlert_Clicked"
+                Style="{StaticResource TestButton}"
+             />
+
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1">
+                <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding ItemUserSelection} " ItemTemplate="{StaticResource ListViewItemTemplate}" Style="{StaticResource ListViewStyle}" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="2">
+                <Label Text="Votre sélection :" HorizontalOptions="Center" />
+                <Label Margin="0, 20, 0, 0" Text="{Binding ItemUserSelection.Name}" FontAttributes ="Bold" HorizontalOptions="Center" />
+                <Button Margin="50" Text="Open item details" Command="{Binding ShowItemDetailsCommand}" HorizontalOptions="Center"
+                />
+                <Button Margin="50" Text="Indexer" Command="{Binding IndexerCommand}" HorizontalOptions="Center"/>
+                <Button Margin="50" Text="Sauvegarder les données" Command="{Binding SaveChangesCommand}" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
 
 
 
 
-            <!--<Image
+        <!--<Image
                 Source="dotnet_bot.png"
                 HeightRequest="185"
                 Aspect="AspectFit"
@@ -181,7 +229,6 @@
                 HorizontalOptions="Fill" />
 
             <Entry x:Name="EntryCount" />-->
-        </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
