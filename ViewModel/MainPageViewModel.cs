@@ -27,6 +27,7 @@ namespace Brasserie.ViewModel
 
         [ObservableProperty]
         private Item itemUserSelection;
+
         [RelayCommand()]
         private async void ShowItemDetails()
         {
@@ -41,9 +42,11 @@ namespace Brasserie.ViewModel
         }
         [RelayCommand()]
         private async void Indexer()
-        {
-            Items.IndexPrices(5.0);
-            await alertService.ShowConfirmation("Indexer", "Confirmer l'indexation de tous les prix de 5% ?");
+        {           
+            if(await alertService.ShowConfirmation("Indexer", "Confirmer l'indexation de tous les prix de 5% ?"))
+            {
+                Items.IndexPrices(5.0);
+            }
         }
         [RelayCommand()]
         private async void SaveChanges()

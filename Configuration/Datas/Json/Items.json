@@ -6,7 +6,7 @@
       "Name": "Spaghettis bolognaise",
       "Description": "p�tes sauce tomate et viande hach�e",
       "Id": 1,
-      "UnitPrice": 17.5,
+      "UnitPrice": 18.375,
       "VatRate": 21.0,
       "PictureName": "spaghbolo.jpg"
     },
@@ -15,7 +15,7 @@
       "Name": "Penne arrabiata",
       "Description": "p�tes sauce tomate piment�e",
       "Id": 2,
-      "UnitPrice": 18.0,
+      "UnitPrice": 18.900000000000002,
       "VatRate": 21.0,
       "PictureName": "pennes_arrabiata.jpg"
     },
@@ -24,7 +24,7 @@
       "Name": "Spahhettis carbonara",
       "Description": "p�tes sauce cr�me lardons et oeuf",
       "Id": 3,
-      "UnitPrice": 18.5,
+      "UnitPrice": 19.425,
       "VatRate": 21.0,
       "PictureName": "spaghetti_carbonara.jpg"
     },
@@ -33,7 +33,7 @@
       "Name": "Penne quatre fromages",
       "Description": "p�tes sauce et fromages",
       "Id": 4,
-      "UnitPrice": 18.5,
+      "UnitPrice": 19.425,
       "VatRate": 21.0,
       "PictureName": "pennes_4fromages.jpg"
     },
@@ -43,7 +43,7 @@
       "Name": "Coca Cola",
       "Description": "Boisson rafraichissante aux extraits de vegetaux",
       "Id": 8,
-      "UnitPrice": 3.4,
+      "UnitPrice": 3.57,
       "VatRate": 21.0,
       "PictureName": "cocacola25.jpg"
     },
@@ -53,7 +53,7 @@
       "Name": "Schwepps Tonic",
       "Description": "Boisson p�tillante au citron",
       "Id": 9,
-      "UnitPrice": 3.6,
+      "UnitPrice": 3.7800000000000002,
       "VatRate": 21.0,
       "PictureName": "schwepps_tonic25.jpg"
     },
@@ -63,7 +63,7 @@
       "Name": "Sprite",
       "Description": "Boisson p�tillante aux extraits de citron",
       "Id": 10,
-      "UnitPrice": 3.6,
+      "UnitPrice": 3.7800000000000002,
       "VatRate": 21.0,
       "PictureName": "sprite25.jpg"
     },
@@ -73,7 +73,7 @@
       "Name": "Fanta",
       "Description": "Boisson p�tillante aux extraits d'orange",
       "Id": 11,
-      "UnitPrice": 3.6,
+      "UnitPrice": 3.7800000000000002,
       "VatRate": 21.0,
       "PictureName": "fanta25.jpg"
     },
@@ -85,7 +85,7 @@
       "Name": "Porto Rouge",
       "Description": "Ap�ritif sucr�",
       "Id": 16,
-      "UnitPrice": 5.8,
+      "UnitPrice": 6.09,
       "VatRate": 21.0,
       "PictureName": "porto.jpg"
     },
@@ -97,7 +97,7 @@
       "Name": "Kirr",
       "Description": "Ap�ritif fruit�",
       "Id": 17,
-      "UnitPrice": 5.8,
+      "UnitPrice": 6.09,
       "VatRate": 21.0,
       "PictureName": "porto.jpg"
     },
@@ -111,7 +111,7 @@
       "Name": "Bush Caractere 12,5",
       "Description": "bi�re brass�e sur place",
       "Id": 18,
-      "UnitPrice": 2.7,
+      "UnitPrice": 2.8350000000000004,
       "VatRate": 21.0,
       "PictureName": "buschcaractere125.jpg"
     },
@@ -125,7 +125,7 @@
       "Name": "Bush Triple 12,5",
       "Description": "bi�re brass�e sur place",
       "Id": 19,
-      "UnitPrice": 2.7,
+      "UnitPrice": 2.8350000000000004,
       "VatRate": 21.0,
       "PictureName": "BuschTriple125.jpg"
     },
@@ -139,7 +139,7 @@
       "Name": "Bush Triple 25",
       "Description": "bi�re brass�e sur place",
       "Id": 20,
-      "UnitPrice": 5.2,
+      "UnitPrice": 5.460000000000001,
       "VatRate": 21.0,
       "PictureName": "BuschTriple25.jpg"
     },
@@ -153,7 +153,7 @@
       "Name": "Bush Ambr�e 25",
       "Description": "bi�re brass�e sur place",
       "Id": 21,
-      "UnitPrice": 4.5,
+      "UnitPrice": 4.7250000000000005,
       "VatRate": 21.0,
       "PictureName": "bush_ambree25.jpg"
     }
