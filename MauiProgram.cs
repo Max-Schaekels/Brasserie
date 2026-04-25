@@ -43,6 +43,9 @@ namespace Brasserie
             builder.Services.AddTransient<MainPageViewModel>();
             builder.Services.AddTransient<MainPage>();
 
+            builder.Services.AddTransient<StaffMembersPageViewModel>(); 
+            builder.Services.AddTransient<StaffMembersPage>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

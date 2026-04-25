@@ -156,7 +156,7 @@ namespace Brasserie.Utilities.DataAccess
         /// update json source file from the customers collection
         /// </summary>
         /// <param name="uc"></param>
-        public void UpdateAllStaffMembers(StaffMembersCollection staffMembers)
+        public override bool UpdateAllStaffMembers(StaffMembersCollection staffMembers)
         {
             AccessPath = DataFilesManager.DataFiles.GetFilePathByCodeFunction("STAFFMEMBERS");
             if (IsValidAccessPath)
@@ -165,10 +165,12 @@ namespace Brasserie.Utilities.DataAccess
                 string json = JsonConvert.SerializeObject(staffMembers, Formatting.Indented, settings);
 
                 File.WriteAllText(AccessPath, json);
+                return true;
             }
             else
             {
-                Console.WriteLine("UpdateAllCustomersDatas error can't update datasource file");
+                //Console.WriteLine("UpdateAllStaffMembersDatas error can't update datasource file");
+                return false;
             }
         }
 

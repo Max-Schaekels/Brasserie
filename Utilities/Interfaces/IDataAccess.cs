@@ -46,5 +46,11 @@ namespace Brasserie.Utilities.Interfaces
         /// <returns></returns>
         bool UpdateAllItems(ItemsCollection items);
         //All CRUD methods must be added here
+        /// <summary> 
+        /// update source from the actual StaffMembersCollection 
+        /// </summary> 
+        /// <param name="staffMembers"></param> 
+        /// <returns></returns> 
+        bool UpdateAllStaffMembers(StaffMembersCollection staffMembers);
     }
 }

@@ -198,6 +198,25 @@
                 />
                 <Button Margin="50" Text="Indexer" Command="{Binding IndexerCommand}" HorizontalOptions="Center"/>
                 <Button Margin="50" Text="Sauvegarder les données" Command="{Binding SaveChangesCommand}" HorizontalOptions="Center"/>
+                <Label Margin="0,20,0,0" Text="Nom du restaurant :"
+                    FontAttributes ="Bold"
+                    HorizontalOptions="Start" />
+                <Entry Text="{Binding MainInfos.Name}" FontAttributes ="Bold" HorizontalOptions="Start" WidthRequest="250" />
+                <Label Margin="0,20,0,0" Text="Adresse :" FontAttributes ="Bold" HorizontalOptions="Start" />
+                <Entry Text="{Binding MainInfos.Address}" FontAttributes ="Bold" HorizontalOptions="Start" WidthRequest="250" />
+                <Label Margin="0,20,0,0" Text="WebSite :" FontAttributes ="Bold" HorizontalOptions="Start" />
+                <Entry Text="{Binding MainInfos.WebSite}" FontAttributes ="Bold" HorizontalOptions="Start" WidthRequest="250" />
+                <Label Margin="0,20,0,0" Text="N° TVA :"
+                    FontAttributes ="Bold"
+                    HorizontalOptions="Start" />
+                <Entry Text="{Binding MainInfos.VatCode}" FontAttributes ="Bold" HorizontalOptions="Start" WidthRequest="250" />
+                <Button Margin="0,10,0,0"
+                    Text="Voir les infos du restaurant"
+                    Command="{Binding TestBindingShowPropertiesCommand}" Style="{StaticResource TestButton}" />
+                <Button
+                    Margin="0,10,0,0"
+                    Text="Changer les propriétés"
+                    Command="{Binding TestBindingChangePropertiesCommand}" Style="{StaticResource TestButton}" />
             </VerticalStackLayout>
         </Grid>
 

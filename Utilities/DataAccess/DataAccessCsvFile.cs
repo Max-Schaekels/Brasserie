@@ -229,5 +229,10 @@ namespace Brasserie.Utilities.DataAccess
         {
             throw new NotImplementedException();
         }
+
+        public override bool UpdateAllStaffMembers(StaffMembersCollection staffMembers)
+        {
+            throw new NotImplementedException();
+        }
     }//end class DataAccessCsvFile
 }

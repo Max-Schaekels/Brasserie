@@ -8,10 +8,15 @@
     
     Shell.FlyoutBehavior="Disabled"
     Title="Brasserie">
+    <TabBar>
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate view:MainPage}"
         Route="MainPage" />
-
+    <ShellContent
+        Title="Staff Members"
+        ContentTemplate="{DataTemplate view:StaffMembersPage}"
+        Route="StaffMembersPage" />
+    </TabBar>
 </Shell>

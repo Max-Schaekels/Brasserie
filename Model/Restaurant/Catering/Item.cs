@@ -1,14 +1,16 @@
 ﻿using Brasserie.Utilities.EntriesValidation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Brasserie.Model.Restaurant.Catering
 {
-    public abstract class Item
+    public abstract class Item : INotifyPropertyChanged
     {
         private const int MINIMUM_DESCRIPTION_LENGTH = 10;
         private const int MINIMUM_NAME_LENGTH = 3;
@@ -20,6 +22,8 @@ namespace Brasserie.Model.Restaurant.Catering
         private double _unitPrice;
         private double _vatRate;
         private string _pictureName;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public Item(int id, string name, string description, double unitPrice, double vatRate, string pictureName)
         {
@@ -80,6 +84,7 @@ namespace Brasserie.Model.Restaurant.Catering
                 {
                     _unitPrice = value;
                 }
+                OnPropertyChanged(nameof(UnitPrice));
             }
         }
 
@@ -112,6 +117,11 @@ namespace Brasserie.Model.Restaurant.Catering
         /// </summary>
         /// <returns>auto description</returns> 
         public abstract string AutoDescription();
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
     }
 }

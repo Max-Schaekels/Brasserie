@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -8,12 +10,16 @@ using static System.Net.WebRequestMethods;
 
 namespace Brasserie.Model.Restaurant
 {
-    public class MainInformations
+    public class MainInformations : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         private string _name = "";
         private string _address = "";
         private string _vatCode = "";
         private string _webSite = "";
+        
+
         public MainInformations(string name, string address, string vatCode, string webSite) 
         { 
             _name = name;
@@ -32,6 +38,7 @@ namespace Brasserie.Model.Restaurant
                 {
                     _name = value;
                 }
+                OnPropertyChanged(nameof(Name));
             }
         }
         /// <summary> /// Restaurant's Postal Address /// </summary> 
@@ -45,6 +52,7 @@ namespace Brasserie.Model.Restaurant
                 {
                     _address = value;
                 }
+                OnPropertyChanged(nameof(Address));
             }
         }
 
@@ -59,6 +67,7 @@ namespace Brasserie.Model.Restaurant
                 {
                     _vatCode = value;
                 }
+                OnPropertyChanged(nameof(VatCode));
             }
         }
         /// <summary> /// url restaurant's website /// </summary> 
@@ -71,6 +80,7 @@ namespace Brasserie.Model.Restaurant
                 {
                     _webSite = value;
                 }
+                OnPropertyChanged(nameof(WebSite));
             }
         }
         /// <summary> /// Vat Code number for belgian company BE 0563.191.043 /// </summary> /// <param name="tryAccount"></param> /// <returns></returns> 
@@ -105,7 +115,7 @@ namespace Brasserie.Model.Restaurant
         {
             if (!string.IsNullOrEmpty(tryUrl))
             {
-                if (!Regex.IsMatch(tryUrl, @"(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA - Z0 - 9 -]+ [a - zA - Z0 - 9]\.[^\s] { 2,}| www\.[a - zA - Z0 - 9][a - zA - Z0 - 9 -] + [a-zA-Z0-9]\.[^\s] { 2,}| https ?:\/\/ (?: www\.| (? !www))[a - zA - Z0 - 9] +\.[^\s] { 2,}| www\.[a - zA - Z0 - 9] +\.[^\s] { 2,})"))
+                if (!Regex.IsMatch(tryUrl, @"(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"))
                 {
                     return false;
                 }
@@ -131,6 +141,11 @@ namespace Brasserie.Model.Restaurant
             }
 
             return false;
+        }
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }//end class
 }

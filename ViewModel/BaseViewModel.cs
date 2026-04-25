@@ -11,9 +11,8 @@ namespace Brasserie.ViewModel
 {
     public class BaseViewModel : ObservableObject
     {
-        public BaseViewModel(IAlertService alertService, string restaurantName = "My restaurant") 
-        { 
-            RestaurantName = restaurantName; 
+        public BaseViewModel(IAlertService alertService) 
+        {  
             this.alertService = alertService;
             MainInfos = new MainInformations("My Restaurant", "4, rue de la Lys 7000 Mons", "BE 0563.191.043", "http://myrestaurant.be");
         }
