@@ -27,7 +27,7 @@ namespace Brasserie
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            builder.Services.AddSingleton<DataFilesManager>(new DataFilesManager(CONFIG_PORT_JSON));
+            builder.Services.AddSingleton<DataFilesManager>(new DataFilesManager(CONFIG_HOME_JSON));
             /*
             Services.AddSingleton() permet de faire de l'injection de dépendance dans le constructeur des ViewModel par exemple
             sans devoir faire un new DataAccessJsonFile() dans celui-ci

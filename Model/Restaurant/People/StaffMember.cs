@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -14,7 +15,9 @@ namespace Brasserie.Model.Restaurant.People
         private string _bankAccount;
         private string _address;
         private double _salary;
+
         
+
         public StaffMember(int id, string lastName, string firstName, bool gender, string email, string phone, string bankAccount, string address, double salary)
             : base(id, lastName, firstName, gender, email, phone)
         { 
@@ -36,7 +39,8 @@ namespace Brasserie.Model.Restaurant.People
                 {
                     _bankAccount = value;
                 }
-                
+                OnPropertyChanged(nameof(BankAccount));
+
             }
         }
 
@@ -53,7 +57,8 @@ namespace Brasserie.Model.Restaurant.People
                 { 
                  _address = value;
                 }
-                
+                OnPropertyChanged(nameof(Address));
+
             }       
         }
 
@@ -70,7 +75,8 @@ namespace Brasserie.Model.Restaurant.People
                 {
                     _salary = value;
                 }
-                
+                OnPropertyChanged(nameof(Salary));
+
             }
         }
 

@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Brasserie.Utilities.EntriesValidation;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Brasserie.Utilities.EntriesValidation;
 
 namespace Brasserie.Model.Restaurant.People
 {
-    public abstract class Person
+    public abstract class Person : INotifyPropertyChanged
     {
         private int _id;
         private string _lastName;
@@ -17,6 +19,8 @@ namespace Brasserie.Model.Restaurant.People
         private string _email;
         private string _mobilePhoneNumber;
         private static int _totalPersons;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public Person(int id, string lastName = "nom", string firstName = "prenom", bool gender = true, string email = "", string mobilePhoneNumber = "")
         {
@@ -53,6 +57,7 @@ namespace Brasserie.Model.Restaurant.People
                 {
                     _lastName = value;
                 }
+                OnPropertyChanged(nameof(LastName));
             }
         }
         /// <summary>
@@ -67,6 +72,7 @@ namespace Brasserie.Model.Restaurant.People
                 {
                     _firstName = value;
                 }
+                OnPropertyChanged(nameof(FirstName));
             }
         }
         /// <summary>
@@ -87,6 +93,7 @@ namespace Brasserie.Model.Restaurant.People
                 {
                     _email = value;
                 }
+                OnPropertyChanged(nameof(Email));
             }
         }
         /// <summary>
@@ -101,6 +108,7 @@ namespace Brasserie.Model.Restaurant.People
                 {
                     _mobilePhoneNumber = value;
                 }
+                OnPropertyChanged(nameof(MobilePhoneNumber));
             }
         }
 
@@ -146,8 +154,11 @@ namespace Brasserie.Model.Restaurant.People
             }
             return false;
         }
-        
 
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
 
     }

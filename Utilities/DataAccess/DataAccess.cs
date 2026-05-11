@@ -67,6 +67,8 @@ namespace Brasserie.Utilities.DataAccess
         public abstract StaffMembersCollection GetAllStaffMembers();
         public abstract bool UpdateAllItems(ItemsCollection items);
         public abstract bool UpdateAllStaffMembers(StaffMembersCollection staffMembers);
+
+        public abstract bool DeleteStaffMember(StaffMember staffMember);
         /// <summary>
         /// Check AccessPath to the data source file. File path must exist and if
         /// extensions are specified, the extension file must match to one of them

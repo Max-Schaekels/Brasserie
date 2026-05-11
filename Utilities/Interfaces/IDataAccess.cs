@@ -52,5 +52,7 @@ namespace Brasserie.Utilities.Interfaces
         /// <param name="staffMembers"></param> 
         /// <returns></returns> 
         bool UpdateAllStaffMembers(StaffMembersCollection staffMembers);
+
+        bool DeleteStaffMember(StaffMember staffMember);
     }
 }

@@ -174,5 +174,29 @@ namespace Brasserie.Utilities.DataAccess
             }
         }
 
+        public override bool DeleteStaffMember(StaffMember staffMember)
+        {
+            AccessPath = DataFilesManager.DataFiles.GetFilePathByCodeFunction("STAFFMEMBERS");
+            if (IsValidAccessPath)
+            {
+                StaffMembersCollection staffMembers = GetAllStaffMembers();
+                if (staffMembers != null)
+                {
+                    staffMembers.Remove(staffMember);
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("DeleteStaffMember error can't get staff members collection from datasource file");
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("DeleteStaffMember error can't access datasource file");
+                return false;
+            }
+
+        }
     }
 }

@@ -48,7 +48,9 @@ namespace Brasserie.Model.Restaurant.Catering
                 {
                     _name = value;
                 }
+                OnPropertyChanged(nameof(Name));
             }
+
         }
 
         public string Description
@@ -60,6 +62,7 @@ namespace Brasserie.Model.Restaurant.Catering
                 {
                     _description = value;
                 }
+                OnPropertyChanged(nameof(Description));
             }
         }
 
@@ -97,6 +100,7 @@ namespace Brasserie.Model.Restaurant.Catering
                 {
                     _vatRate = value;
                 }
+                OnPropertyChanged(nameof(VatRate));
             }
         }
 

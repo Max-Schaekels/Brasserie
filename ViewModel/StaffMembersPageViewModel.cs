@@ -1,5 +1,6 @@
 ﻿using Brasserie.Model.Restaurant.People;
 using Brasserie.Utilities.Interfaces;
+using Brasserie.View;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -118,5 +119,24 @@ namespace Brasserie.ViewModel
             //show the popup on screen
             Shell.Current.CurrentPage.ShowPopup(popup);
         }
+
+        [RelayCommand()]
+        private async Task DeleteStaffMemberSelected(StaffMember sm)
+        {
+            bool confirmation = await alertService.ShowConfirmation("Suppression", $"Êtes-vous sûr de vouloir supprimer {sm.FirstName} {sm.LastName} ?");
+
+            if (confirmation)
+            {
+                if (StaffMembers.DeleteStaffMember(sm))
+                {
+                    alertService.ShowAlert("Suppression", "Le membre a bien été supprimé");
+                }
+                else
+                {
+                    alertService.ShowAlert("Suppression erreur", "Une erreur est survenue lors de la suppression");
+                }
+            }
+        }
+
     }
 }

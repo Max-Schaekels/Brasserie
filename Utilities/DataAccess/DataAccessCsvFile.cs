@@ -234,5 +234,10 @@ namespace Brasserie.Utilities.DataAccess
         {
             throw new NotImplementedException();
         }
+
+        public override bool DeleteStaffMember(StaffMember staffMember)
+        {
+            throw new NotImplementedException();
+        }
     }//end class DataAccessCsvFile
 }
