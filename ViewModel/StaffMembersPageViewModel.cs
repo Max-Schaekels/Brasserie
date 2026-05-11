@@ -121,20 +121,32 @@ namespace Brasserie.ViewModel
         }
 
         [RelayCommand()]
-        private async Task DeleteStaffMemberSelected(StaffMember sm)
+        private async Task DeleteStaffMemberSelected()
         {
-            bool confirmation = await alertService.ShowConfirmation("Suppression", $"Êtes-vous sûr de vouloir supprimer {sm.FirstName} {sm.LastName} ?");
-
-            if (confirmation)
+            if (StaffMemberSelection == null)
             {
-                if (StaffMembers.DeleteStaffMember(sm))
-                {
-                    alertService.ShowAlert("Suppression", "Le membre a bien été supprimé");
-                }
-                else
-                {
-                    alertService.ShowAlert("Suppression erreur", "Une erreur est survenue lors de la suppression");
-                }
+                await alertService.ShowAlert("Suppression", "Veuillez sélectionner un membre à supprimer.");
+                return;
+            }
+
+            bool confirmation = await alertService.ShowConfirmation("Suppression", $"Êtes-vous sûr de vouloir supprimer {StaffMemberSelection.FirstName} {StaffMemberSelection.LastName} ?"
+            );
+
+            if (!confirmation)
+            {
+                return;
+            }
+
+            bool isDeleted = StaffMembers.DeleteStaffMember(StaffMemberSelection);
+
+            if (isDeleted)
+            {
+                await alertService.ShowAlert("Suppression", "Le membre a bien été supprimé");
+                StaffMemberSelection = null;
+            }
+            else
+            {
+                await alertService.ShowAlert("Suppression erreur", "Une erreur est survenue lors de la suppression");
             }
         }
 

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Brasserie.View.MenuPage"
+             Title="Menu">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="ColumnTitleStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0,0,0,10" />
+            </Style>
+
+            <Style x:Key="ItemNameStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+
+            <Style x:Key="ItemDescriptionStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+
+            <Style x:Key="ItemPriceStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Italic" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Margin="20"
+                             Spacing="15">
+
+            <Label Text="Menu"
+                   FontAttributes="Bold"
+                   FontSize="24"
+                   HorizontalOptions="Center" />
+
+            <Grid ColumnSpacing="15">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Colonne des plats -->
+                <VerticalStackLayout Grid.Column="0">
+
+                    <Label Text="Plats"
+                           Style="{StaticResource ColumnTitleStyle}" />
+
+                    <CollectionView ItemsSource="{Binding Dishes}"
+                                    SelectionMode="None">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Frame BorderColor="SteelBlue"
+                                       Padding="8"
+                                       Margin="0,0,0,8">
+
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectItemCommand}"
+                                                              CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+
+                                    <Grid ColumnSpacing="10">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Grid.Column="0"
+                                               Source="{Binding PictureName}"
+                                               Aspect="AspectFill"
+                                               HeightRequest="80"
+                                               WidthRequest="80" />
+
+                                        <VerticalStackLayout Grid.Column="1"
+                                                             Spacing="4">
+
+                                            <Label Text="{Binding Name}"
+                                                   Style="{StaticResource ItemNameStyle}" />
+
+                                            <Label Text="{Binding Description}"
+                                                   Style="{StaticResource ItemDescriptionStyle}" />
+
+                                            <Label Text="{Binding UnitPrice, StringFormat='{0:0.00} €'}"
+                                                   Style="{StaticResource ItemPriceStyle}" />
+
+                                        </VerticalStackLayout>
+
+                                    </Grid>
+
+                                </Frame>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+                <!-- Colonne des softs -->
+                <VerticalStackLayout Grid.Column="1">
+
+                    <Label Text="Softs"
+                           Style="{StaticResource ColumnTitleStyle}" />
+
+                    <CollectionView ItemsSource="{Binding Softs}"
+                                    SelectionMode="None">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Frame BorderColor="SteelBlue"
+                                       Padding="8"
+                                       Margin="0,0,0,8">
+
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectItemCommand}"
+                                                              CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+
+                                    <Grid ColumnSpacing="10">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Grid.Column="0"
+                                               Source="{Binding PictureName}"
+                                               Aspect="AspectFill"
+                                               HeightRequest="80"
+                                               WidthRequest="80" />
+
+                                        <VerticalStackLayout Grid.Column="1"
+                                                             Spacing="4">
+
+                                            <Label Text="{Binding Name}"
+                                                   Style="{StaticResource ItemNameStyle}" />
+
+                                            <Label Text="{Binding Description}"
+                                                   Style="{StaticResource ItemDescriptionStyle}" />
+
+                                            <Label Text="{Binding UnitPrice, StringFormat='{0:0.00} €'}"
+                                                   Style="{StaticResource ItemPriceStyle}" />
+
+                                        </VerticalStackLayout>
+
+                                    </Grid>
+
+                                </Frame>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+                <!-- Colonne des bières -->
+                <VerticalStackLayout Grid.Column="2">
+
+                    <Label Text="Bières"
+                           Style="{StaticResource ColumnTitleStyle}" />
+
+                    <CollectionView ItemsSource="{Binding Beers}"
+                                    SelectionMode="None">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Frame BorderColor="SteelBlue"
+                                       Padding="8"
+                                       Margin="0,0,0,8">
+
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectItemCommand}"
+                                                              CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+
+                                    <Grid ColumnSpacing="10">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Grid.Column="0"
+                                               Source="{Binding PictureName}"
+                                               Aspect="AspectFill"
+                                               HeightRequest="80"
+                                               WidthRequest="80" />
+
+                                        <VerticalStackLayout Grid.Column="1"
+                                                             Spacing="4">
+
+                                            <Label Text="{Binding Name}"
+                                                   Style="{StaticResource ItemNameStyle}" />
+
+                                            <Label Text="{Binding Description}"
+                                                   Style="{StaticResource ItemDescriptionStyle}" />
+
+                                            <Label Text="{Binding UnitPrice, StringFormat='{0:0.00} €'}"
+                                                   Style="{StaticResource ItemPriceStyle}" />
+
+                                        </VerticalStackLayout>
+
+                                    </Grid>
+
+                                </Frame>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+                <!-- Colonne des apéritifs -->
+                <VerticalStackLayout Grid.Column="3">
+
+                    <Label Text="Apéritifs"
+                           Style="{StaticResource ColumnTitleStyle}" />
+
+                    <CollectionView ItemsSource="{Binding Aperitifs}"
+                                    SelectionMode="None">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Frame BorderColor="SteelBlue"
+                                       Padding="8"
+                                       Margin="0,0,0,8">
+
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectItemCommand}"
+                                                              CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+
+                                    <Grid ColumnSpacing="10">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Grid.Column="0"
+                                               Source="{Binding PictureName}"
+                                               Aspect="AspectFill"
+                                               HeightRequest="80"
+                                               WidthRequest="80" />
+
+                                        <VerticalStackLayout Grid.Column="1"
+                                                             Spacing="4">
+
+                                            <Label Text="{Binding Name}"
+                                                   Style="{StaticResource ItemNameStyle}" />
+
+                                            <Label Text="{Binding Description}"
+                                                   Style="{StaticResource ItemDescriptionStyle}" />
+
+                                            <Label Text="{Binding UnitPrice, StringFormat='{0:0.00} €'}"
+                                                   Style="{StaticResource ItemPriceStyle}" />
+
+                                        </VerticalStackLayout>
+
+                                    </Grid>
+
+                                </Frame>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

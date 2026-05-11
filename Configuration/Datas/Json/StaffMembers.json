@@ -7,7 +7,7 @@
       "Address": "4, rue du marais 7030 Ghlin",
       "GetSalary": 0.0,
       "Id": 4,
-      "LastName": "Fritzzz",
+      "LastName": "Fritzz",
       "FirstName": "Hector",
       "Gender": true,
       "Email": "fritzhector@gmail.com",
@@ -15,14 +15,14 @@
     },
     {
       "$type": "Brasserie.Model.Restaurant.People.StaffMember, Brasserie",
-      "BankAccount": "BE84 7090 3456 2390",
-      "Address": "5, rue grande 7000 LosAngeles",
+      "BankAccount": "BE84 7190 3456 2390",
+      "Address": "5, rue grande 7100 LosAngeles",
       "GetSalary": 0.0,
       "Id": 5,
-      "LastName": "Swiftttttt",
-      "FirstName": "Taylorrrr",
+      "LastName": "Swift",
+      "FirstName": "Taylor",
       "Gender": false,
-      "Email": "taylor999@gmail.com",
+      "Email": "taylor899@gmail.com",
       "MobilePhoneNumber": null
     },
     {
@@ -49,18 +49,6 @@
       "Gender": false,
       "Email": "isablletarne@gmail.com",
       "MobilePhoneNumber": null
-    },
-    {
-      "$type": "Brasserie.Model.Restaurant.People.StaffMember, Brasserie",
-      "BankAccount": "BE00 0000 0000 0000",
-      "Address": null,
-      "GetSalary": 0.0,
-      "Id": 8,
-      "LastName": "Nom",
-      "FirstName": "Prenom",
-      "Gender": true,
-      "Email": "youremail@gmail.com",
-      "MobilePhoneNumber": "0470000000"
     }
   ]
 }

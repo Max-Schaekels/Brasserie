@@ -18,5 +18,9 @@
         Title="Staff Members"
         ContentTemplate="{DataTemplate view:StaffMembersPage}"
         Route="StaffMembersPage" />
+    <ShellContent
+        Title="Menu"
+        ContentTemplate="{DataTemplate view:MenuPage}"
+        Route="MenuPage" />
     </TabBar>
 </Shell>

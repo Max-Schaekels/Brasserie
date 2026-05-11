@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="Brasserie.View.ItemPopup">
+
+    <Frame BorderColor="SteelBlue"
+           Padding="20"
+           WidthRequest="650">
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="12">
+
+                <Label Text="Détail de l'item"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       HorizontalOptions="Center" />
+
+                <Grid ColumnSpacing="20">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Image de l'item -->
+                    <Image Grid.Column="0"
+                           Source="{Binding ItemPopupDisplayed.PictureName}"
+                           Aspect="AspectFill"
+                           HeightRequest="180"
+                           WidthRequest="180"
+                           VerticalOptions="Start" />
+
+                    <!-- Informations de l'item -->
+                    <VerticalStackLayout Grid.Column="1"
+                                         Spacing="8">
+
+                        <Label Text="Nom :"
+                               HorizontalOptions="Start" />
+
+                        <Entry Text="{Binding ItemPopupDisplayed.Name}"
+                               FontAttributes="Bold"
+                               WidthRequest="360" />
+
+                        <Label Text="Description :"
+                               HorizontalOptions="Start" />
+
+                        <Editor Text="{Binding ItemPopupDisplayed.Description}"
+                                FontAttributes="Bold"
+                                WidthRequest="360"
+                                HeightRequest="90" />
+
+                        <Label Text="Prix unitaire :"
+                               HorizontalOptions="Start" />
+
+                        <Entry Text="{Binding ItemPopupDisplayed.UnitPrice}"
+                               Keyboard="Numeric"
+                               FontAttributes="Bold"
+                               WidthRequest="360" />
+
+                        <Label Text="TVA :"
+                               HorizontalOptions="Start" />
+
+                        <Entry Text="{Binding ItemPopupDisplayed.VatRate}"
+                               Keyboard="Numeric"
+                               FontAttributes="Bold"
+                               WidthRequest="360" />
+
+                        <!-- Informations spécifiques aux boissons -->
+                        <VerticalStackLayout IsVisible="{Binding IsDrinkSelected}"
+                                             Spacing="8">
+
+                            <Label Text="Volume :"
+                                   HorizontalOptions="Start" />
+
+                            <Entry Text="{Binding DrinkPopupDisplayed.Volume}"
+                                   Keyboard="Numeric"
+                                   FontAttributes="Bold"
+                                   WidthRequest="360" />
+
+                        </VerticalStackLayout>
+
+                        <!-- Informations spécifiques aux alcools -->
+                        <VerticalStackLayout IsVisible="{Binding IsAlcoholSelected}"
+                                             Spacing="8">
+
+                            <Label Text="Taux d'alcool :"
+                                   HorizontalOptions="Start" />
+
+                            <Entry Text="{Binding AlcoholPopupDisplayed.Percentage}"
+                                   Keyboard="Numeric"
+                                   FontAttributes="Bold"
+                                   WidthRequest="360" />
+
+                        </VerticalStackLayout>
+
+                        <!-- Informations spécifiques aux bières -->
+                        <VerticalStackLayout IsVisible="{Binding IsBeerSelected}"
+                                             Spacing="8">
+
+                            <Label Text="Bière d'abbaye :"
+                                   HorizontalOptions="Start" />
+
+                            <CheckBox IsChecked="{Binding BeerPopupDisplayed.IsAbbeyBeer}" />
+
+                            <Label Text="Bière trappiste :"
+                                   HorizontalOptions="Start" />
+
+                            <CheckBox IsChecked="{Binding BeerPopupDisplayed.IsTrappistBeer}" />
+
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+                <Button Text="Enregistrer"
+                        Command="{Binding SaveItemCommand}"
+                        WidthRequest="150"
+                        BackgroundColor="SteelBlue"
+                        HorizontalOptions="Center"
+                        HeightRequest="35" />
+
+                <Button Margin="0,15,0,0"
+                        x:Name="buttonClose"
+                        Text="Fermer"
+                        Clicked="buttonClose_Clicked"
+                        WidthRequest="150"
+                        BackgroundColor="Grey"
+                        HorizontalOptions="Center"
+                        HeightRequest="35" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Frame>
+
+</toolkit:Popup>
