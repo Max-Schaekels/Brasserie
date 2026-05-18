@@ -3,7 +3,7 @@
   "$values": [
     {
       "$type": "Brasserie.Model.Restaurant.Catering.Dish, Brasserie",
-      "Name": "Spaghettis bolognaise",
+      "Name": "Spaghettis bolognaises",
       "Description": "p�tes sauce tomate et viande hach�e",
       "Id": 1,
       "UnitPrice": 18.375,

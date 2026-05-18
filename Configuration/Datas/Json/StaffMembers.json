@@ -11,7 +11,7 @@
       "FirstName": "Hector",
       "Gender": true,
       "Email": "fritzhector@gmail.com",
-      "MobilePhoneNumber": null
+      "MobilePhoneNumber": "0471580070"
     },
     {
       "$type": "Brasserie.Model.Restaurant.People.StaffMember, Brasserie",
@@ -23,7 +23,7 @@
       "FirstName": "Taylor",
       "Gender": false,
       "Email": "taylor899@gmail.com",
-      "MobilePhoneNumber": null
+      "MobilePhoneNumber": "0477060506"
     },
     {
       "$type": "Brasserie.Model.Restaurant.People.StaffMember, Brasserie",
@@ -35,7 +35,7 @@
       "FirstName": "Fred",
       "Gender": true,
       "Email": "fredrenard01@gmail.com",
-      "MobilePhoneNumber": null
+      "MobilePhoneNumber": "0470005000"
     },
     {
       "$type": "Brasserie.Model.Restaurant.People.Manager, Brasserie",
@@ -48,7 +48,7 @@
       "FirstName": "Isabelle",
       "Gender": false,
       "Email": "isablletarne@gmail.com",
-      "MobilePhoneNumber": null
+      "MobilePhoneNumber": "0470000005"
     }
   ]
 }
