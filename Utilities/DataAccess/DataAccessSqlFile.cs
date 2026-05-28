@@ -50,13 +50,95 @@ namespace Brasserie.Utilities.DataAccess
             try
             {
                 ItemsCollection items = new ItemsCollection();
-                //not implemented
+
+                string sql = "SELECT * FROM dbo.Items ORDER BY Id";
+
+                SqlCommand cmd = new SqlCommand(sql, SqlConnection);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Item item = GetItem(dataReader);
+
+                    if (item != null)
+                    {
+                        items.AddItem(item);
+                    }
+                }
+
+                dataReader.Close();
+
                 return items;
             }
             catch (Exception ex)
             {
                 alertService.ShowAlert("Database Request Error", ex.Message);
                 return null;
+            }
+        }
+
+        private static Item GetItem(SqlDataReader dr)
+        {
+            string type = dr["Type"].ToString();
+
+            int id = Convert.ToInt32(dr["Id"]);
+            string name = dr["Name"].ToString();
+            string description = dr["Description"].ToString();
+            double unitPrice = Convert.ToDouble(dr["UnitPrice"]);
+            double vatRate = Convert.ToDouble(dr["VatRate"]);
+            string pictureName = dr["PictureName"].ToString();
+
+            switch (type.ToUpper())
+            {
+                case "DISH":
+                    return new Dish(
+                        id: id,
+                        name: name,
+                        description: description,
+                        unitPrice: unitPrice,
+                        vatRate: vatRate,
+                        pictureName: pictureName
+                    );
+
+                case "SOFT":
+                    return new Soft(
+                        id: id,
+                        name: name,
+                        description: description,
+                        unitPrice: unitPrice,
+                        vatRate: vatRate,
+                        pictureName: pictureName,
+                        volume: Convert.ToDouble(dr["Volume"])
+                    );
+
+                case "APERITIF":
+                    return new Aperitif(
+                        id: id,
+                        name: name,
+                        description: description,
+                        unitPrice: unitPrice,
+                        vatRate: vatRate,
+                        pictureName: pictureName,
+                        volume: Convert.ToDouble(dr["Volume"]),
+                        percentage: Convert.ToDouble(dr["Percentage"])
+                    );
+
+                case "BEER":
+                    return new Beer(
+                        id: id,
+                        name: name,
+                        description: description,
+                        unitPrice: unitPrice,
+                        vatRate: vatRate,
+                        pictureName: pictureName,
+                        volume: Convert.ToDouble(dr["Volume"]),
+                        percentage: Convert.ToDouble(dr["Percentage"]),
+                        isAbbeyBeer: Convert.ToBoolean(dr["IsAbbeyBeer"]),
+                        isTrappistBeer: Convert.ToBoolean(dr["IsTrappistBeer"])
+                    );
+
+                default:
+                    return null;
             }
         }
 
