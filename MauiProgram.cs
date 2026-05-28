@@ -16,6 +16,10 @@ namespace Brasserie
 
         private const string CONFIG_HOME_JSON = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\ConfigJson.txt";
         private const string CONFIG_PORT_JSON = @"C:\POO\Brasserie\Configuration\Datas\ConfigJson.txt";
+
+        private const string CONFIG_PORT_SQL = @"C:\POO\Brasserie\Configuration\Datas\ConfigSQL.txt";
+
+        private const string CONFIG_HOME_SQL = @"C:\Users\Max\Desktop\IRAM\INF\POO\Brasserie\Brasserie\Configuration\Datas\ConfigSQL.txt";
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
@@ -27,7 +31,7 @@ namespace Brasserie
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            builder.Services.AddSingleton<DataFilesManager>(new DataFilesManager(CONFIG_HOME_JSON));
+            builder.Services.AddSingleton<DataFilesManager>(new DataFilesManager(CONFIG_PORT_SQL));
             /*
             Services.AddSingleton() permet de faire de l'injection de dépendance dans le constructeur des ViewModel par exemple
             sans devoir faire un new DataAccessJsonFile() dans celui-ci

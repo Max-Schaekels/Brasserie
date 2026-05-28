@@ -79,7 +79,7 @@ namespace Brasserie.Model.Restaurant.People
 
             }
         }
-
+       
         /// <summary>
         /// Propriété d'accès au salaire utilise si en lecture seule
         ///  </summary>

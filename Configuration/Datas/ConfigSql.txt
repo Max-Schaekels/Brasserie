@@ -1,0 +1,3 @@
+﻿FOLDER,NOT_USED 
+CONNECTION_STRING,Data Source=DESKTOP-AS6NJLR\SQLEXPRESS;Initial Catalog=BrasserieDatabase;Integrated Security=True;Trust Server Certificate=True
+RESTAURANT_NAME,Iram Ps Food Service
