@@ -42,6 +42,7 @@ namespace Brasserie
             //Singleton for AlertServiceDisplay
             builder.Services.AddSingleton<IAlertService, AlertServiceDisplay>(); 
             builder.Services.AddSingleton<IDataAccess, DataAccessJsonFile>();
+            builder.Services.AddSingleton<IDataAccess, DataAccessSqlFile>();
 
             //permet de faire de l'injection de dépendance dans le constructeur de la MainPage sans devoir faire un new MainPageViewModel() dans celui-ci
             builder.Services.AddTransient<MainPageViewModel>();
